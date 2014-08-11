@@ -27,17 +27,45 @@
  */
 +(TBoard *) boardWithSize:(CGSize)size;
 
+#pragma mark Tile Accessing
+
+/**
+ * Attempts to retrieve the tile at the given point and return it.
+ *
+ * @note This method should be used wherever possible - avoid *walking* the
+ *       _tiles array instead.
+ *
+ * @param point The index, in cartesian form (x,y) of the tile.
+ *
+ * @return Returns the tile at the given index or nil if invalid.
+ */
+-(TTile *) tileAtIndex:(CGPoint)point;
+
 #pragma mark Tile Collision
 
 /**
  * Checks and returns the tile that contains the given point. If no tile
- * contains the point, return TTileNotFound.
+ * contains the point, return nil.
  *
  * @param  point The touch-location, in world-space.
  * @return Returns a pointer to TTile, otherwise nil if there
  *         is no tile at the given location.
  */
 -(TTile *) tileAtPoint:(CGPoint)point;
+
+/**
+ * Finds and returns the group of connected tiles, with origin at the
+ * given point. Connected tiles are defined as a continuous group of
+ * adjacent, similarly coloured tiles. 
+ *
+ * @note Can return an empty array if the point doesn't correspond to any tile
+ *
+ * @param point The position of origin of the group (usually the touch pos.)
+ *
+ * @return Returns an NSArray with all the connected tiles, if there are none
+ *         this will simply be the tile found at the given point.
+ */
+-(NSArray *) tileGroupAtPoint:(CGPoint)point;
 
 #pragma mark Tile Removals
 
