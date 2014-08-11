@@ -203,6 +203,10 @@
 		56FD18461998FFE400D51FB8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD18451998FFE400D51FB8 /* main.m */; };
 		56FD184A1998FFE500D51FB8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD18491998FFE500D51FB8 /* AppDelegate.m */; };
 		56FD18501998FFE500D51FB8 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD184F1998FFE500D51FB8 /* IntroScene.m */; };
+		56FD185D199900CD00D51FB8 /* TBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD185C199900CD00D51FB8 /* TBoard.m */; };
+		56FD18601999015800D51FB8 /* TTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD185F1999015800D51FB8 /* TTile.m */; };
+		56FD18631999042300D51FB8 /* TColour.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD18621999042300D51FB8 /* TColour.m */; };
+		56FD186619990A1900D51FB8 /* TTile.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD186519990A1900D51FB8 /* TTile.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -616,6 +620,13 @@
 		56FD18491998FFE500D51FB8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		56FD184E1998FFE500D51FB8 /* IntroScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntroScene.h; path = Classes/IntroScene.h; sourceTree = "<group>"; };
 		56FD184F1998FFE500D51FB8 /* IntroScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IntroScene.m; path = Classes/IntroScene.m; sourceTree = "<group>"; };
+		56FD185B199900CD00D51FB8 /* TBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBoard.h; sourceTree = "<group>"; };
+		56FD185C199900CD00D51FB8 /* TBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBoard.m; sourceTree = "<group>"; };
+		56FD185E1999015800D51FB8 /* TTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTile.h; sourceTree = "<group>"; };
+		56FD185F1999015800D51FB8 /* TTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTile.m; sourceTree = "<group>"; };
+		56FD18611999042300D51FB8 /* TColour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TColour.h; sourceTree = "<group>"; };
+		56FD18621999042300D51FB8 /* TColour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TColour.m; sourceTree = "<group>"; };
+		56FD186519990A1900D51FB8 /* TTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TTile.png; path = Resources/Nodes/TTile.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -689,6 +700,7 @@
 		56FD15E31998FFE100D51FB8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				56FD1864199909EA00D51FB8 /* Nodes */,
 				56FD15E41998FFE100D51FB8 /* Default.png */,
 				56FD15E61998FFE100D51FB8 /* Default@2x.png */,
 				56FD15E81998FFE100D51FB8 /* Default-568h@2x.png */,
@@ -1430,12 +1442,42 @@
 		56FD18471998FFE400D51FB8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				56FD185A199900BB00D51FB8 /* Nodes */,
+				56FD1859199900B300D51FB8 /* Scenes */,
 				56FD18481998FFE400D51FB8 /* AppDelegate.h */,
 				56FD18491998FFE500D51FB8 /* AppDelegate.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		56FD1859199900B300D51FB8 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
 				56FD184E1998FFE500D51FB8 /* IntroScene.h */,
 				56FD184F1998FFE500D51FB8 /* IntroScene.m */,
 			);
-			name = Classes;
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		56FD185A199900BB00D51FB8 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				56FD185B199900CD00D51FB8 /* TBoard.h */,
+				56FD185C199900CD00D51FB8 /* TBoard.m */,
+				56FD185E1999015800D51FB8 /* TTile.h */,
+				56FD185F1999015800D51FB8 /* TTile.m */,
+				56FD18611999042300D51FB8 /* TColour.h */,
+				56FD18621999042300D51FB8 /* TColour.m */,
+			);
+			name = Nodes;
+			sourceTree = "<group>";
+		};
+		56FD1864199909EA00D51FB8 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				56FD186519990A1900D51FB8 /* TTile.png */,
+			);
+			name = Nodes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1507,6 +1549,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56FD15E71998FFE100D51FB8 /* Default@2x.png in Resources */,
+				56FD186619990A1900D51FB8 /* TTile.png in Resources */,
 				56FD15FA1998FFE100D51FB8 /* Icon-120.png in Resources */,
 				56FD15F01998FFE100D51FB8 /* Icon@2x.png in Resources */,
 				56FD16021998FFE100D51FB8 /* Icon-Small@2x.png in Resources */,
@@ -1538,6 +1581,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56FD18601999015800D51FB8 /* TTile.m in Sources */,
 				56FD16F61998FFE300D51FB8 /* CCTransition.m in Sources */,
 				56FD16421998FFE200D51FB8 /* CCCache.m in Sources */,
 				56FD162B1998FFE200D51FB8 /* CCEffectColorPulse.m in Sources */,
@@ -1558,6 +1602,7 @@
 				56FD17C11998FFE400D51FB8 /* CCBAnimationManager.m in Sources */,
 				56FD165C1998FFE200D51FB8 /* CCActionTween.m in Sources */,
 				56FD16521998FFE200D51FB8 /* CCActionInterval.m in Sources */,
+				56FD185D199900CD00D51FB8 /* TBoard.m in Sources */,
 				56FD17751998FFE300D51FB8 /* ALListener.m in Sources */,
 				56FD178A1998FFE400D51FB8 /* OALSuspendHandler.m in Sources */,
 				56FD17831998FFE400D51FB8 /* OpenALManager.m in Sources */,
@@ -1583,6 +1628,7 @@
 				56FD16CF1998FFE300D51FB8 /* CCSprite.m in Sources */,
 				56FD18501998FFE500D51FB8 /* IntroScene.m in Sources */,
 				56FD17B51998FFE400D51FB8 /* CCTableView.m in Sources */,
+				56FD18631999042300D51FB8 /* TColour.m in Sources */,
 				56FD172A1998FFE300D51FB8 /* ccUtils.c in Sources */,
 				56FD166A1998FFE200D51FB8 /* CCConfiguration.m in Sources */,
 				56FD17181998FFE300D51FB8 /* CCWindow.m in Sources */,
