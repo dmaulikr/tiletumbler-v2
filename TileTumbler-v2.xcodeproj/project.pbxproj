@@ -202,7 +202,6 @@
 		56FD18421998FFE400D51FB8 /* LICENSE_Chipmunk.txt in Resources */ = {isa = PBXBuildFile; fileRef = 56FD18411998FFE400D51FB8 /* LICENSE_Chipmunk.txt */; };
 		56FD18461998FFE400D51FB8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD18451998FFE400D51FB8 /* main.m */; };
 		56FD184A1998FFE500D51FB8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD18491998FFE500D51FB8 /* AppDelegate.m */; };
-		56FD184D1998FFE500D51FB8 /* HelloWorldScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD184C1998FFE500D51FB8 /* HelloWorldScene.m */; };
 		56FD18501998FFE500D51FB8 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD184F1998FFE500D51FB8 /* IntroScene.m */; };
 /* End PBXBuildFile section */
 
@@ -615,8 +614,6 @@
 		56FD18451998FFE400D51FB8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
 		56FD18481998FFE400D51FB8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		56FD18491998FFE500D51FB8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
-		56FD184B1998FFE500D51FB8 /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
-		56FD184C1998FFE500D51FB8 /* HelloWorldScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HelloWorldScene.m; path = Classes/HelloWorldScene.m; sourceTree = "<group>"; };
 		56FD184E1998FFE500D51FB8 /* IntroScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntroScene.h; path = Classes/IntroScene.h; sourceTree = "<group>"; };
 		56FD184F1998FFE500D51FB8 /* IntroScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IntroScene.m; path = Classes/IntroScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1435,8 +1432,6 @@
 			children = (
 				56FD18481998FFE400D51FB8 /* AppDelegate.h */,
 				56FD18491998FFE500D51FB8 /* AppDelegate.m */,
-				56FD184B1998FFE500D51FB8 /* HelloWorldScene.h */,
-				56FD184C1998FFE500D51FB8 /* HelloWorldScene.m */,
 				56FD184E1998FFE500D51FB8 /* IntroScene.h */,
 				56FD184F1998FFE500D51FB8 /* IntroScene.m */,
 			);
@@ -1650,7 +1645,6 @@
 				56FD17951998FFE400D51FB8 /* NSMutableArray+WeakReferences.m in Sources */,
 				56FD16661998FFE200D51FB8 /* CCClippingNode.m in Sources */,
 				56FD16D81998FFE300D51FB8 /* CCSpriteFrame.m in Sources */,
-				56FD184D1998FFE500D51FB8 /* HelloWorldScene.m in Sources */,
 				56FD17601998FFE300D51FB8 /* OALSimpleAudio.m in Sources */,
 				56FD16931998FFE200D51FB8 /* CCNode+Debug.m in Sources */,
 				56FD17791998FFE400D51FB8 /* ALSoundSourcePool.m in Sources */,
