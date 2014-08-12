@@ -60,12 +60,15 @@
   free(verts);
 }
 
+/**
+ * Creates and positions the score label at the left side of the header-bar.
+ */
 -(void) createScoreLabel {
   
   CGPoint anchor = (CGPoint){.x=0,.y=0.5};
   CGPoint pos = (CGPoint){.x=0.05,.y=0.5};
   
-  _score = [CCLabelTTF labelWithString:@"1,000" fontName:UI_FONT fontSize:UI_FONT_SIZE];
+  _score = [CCLabelTTF labelWithString:@"" fontName:UI_FONT fontSize:UI_FONT_SIZE];
   
   [self addChild:_score];
   
@@ -76,12 +79,15 @@
   [_score setAnchorPoint:anchor];
 }
 
+/**
+ * Creates and positions the timer label at the right-side of the header-bar.
+ */
 -(void) createTimerLabel {
   
   CGPoint anchor = (CGPoint){.x=1,.y=0.5};
   CGPoint pos = (CGPoint){.x=0.95,.y=0.5};
   
-  _timer = [CCLabelTTF labelWithString:@"1:00" fontName:UI_FONT fontSize:UI_FONT_SIZE];
+  _timer = [CCLabelTTF labelWithString:@"" fontName:UI_FONT fontSize:UI_FONT_SIZE];
   
   [self addChild:_timer];
   
@@ -92,6 +98,10 @@
   [_timer setAnchorPoint:anchor];
 }
 
+/**
+ * Creates a pause button and assigns it's action to the call-block property,
+ * and positions it at the centre of the header bar.
+ */
 -(void) createPauseButton {
   
   CGPoint pos = (CGPoint){.x=0.5,.y=0.5};
@@ -114,12 +124,63 @@
 
 -(void) updateScore:(int)value {
   
-  [_score setString:[NSString stringWithFormat:@"%d",value]];
+  [_score setString:[GameHeader formatScore:value]];
 }
 
 -(void) updateTimer:(int)value {
 
-  [_timer setString:[NSString stringWithFormat:@"%d",value]];
+  [_timer setString:[GameHeader formatTime:value]];
+}
+
+#pragma mark String Functions
+
+/**
+ * Takes the time remaining in seconds and returns it formatted in
+ * minutes and seconds, minutes visible if > 0 and 's' visible after
+ * seconds if minutes is 0.
+ *
+ * Thus: 1:23 or 23s
+ *
+ * @param timeRemaining the time remaining in seconds
+ * @return Returns a formatted time-string
+ */
++(NSString*) formatTime:(int)timeRemaining {
+  
+  uint minutes = floor((float)timeRemaining / 60);
+  uint seconds = timeRemaining - (minutes * 60);
+  
+  NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+  
+  [numberFormatter setPositiveFormat:@"00"];
+  
+  NSString *secondString = [numberFormatter stringFromNumber:[NSNumber numberWithInt:seconds]];
+  
+  NSString *timeString = [NSString stringWithFormat:@"%d:%@", minutes, secondString];
+  
+  if (minutes == 0) {
+    
+    [numberFormatter setPositiveFormat:@"##s"];
+    
+    secondString = [numberFormatter stringFromNumber:[NSNumber numberWithInt:seconds]];
+    timeString = secondString;
+  }
+  
+  return timeString;
+}
+
+/**
+ * Takes in the given score value and returns a formatted score with commas
+ * separating numbers.
+ *
+ * @param value The score value to format
+ * @return The formatted string
+ */
++(NSString*) formatScore:(int)value {
+  
+  NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+  [numberFormatter setPositiveFormat:@"#,###,###"];
+  
+  return [numberFormatter stringFromNumber:[NSNumber numberWithInt:value]];
 }
 
 @end
