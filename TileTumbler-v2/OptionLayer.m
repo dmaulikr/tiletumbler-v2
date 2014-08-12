@@ -43,7 +43,7 @@
   vertices[2] = (CGPoint){.x=size.width,.y=size.height};
   vertices[3] = (CGPoint){.x=size.width,.y=0};
   
-  [background drawPolyWithVerts:vertices count:4 fillColor:[CCColor colorWithCcColor3b:ccBLACK] borderWidth:1 borderColor:[CCColor colorWithCcColor3b:ccWHITE]];
+  [background drawPolyWithVerts:vertices count:4 fillColor:[CCColor colorWithCcColor3b:ccBLACK] borderWidth:0 borderColor:[CCColor clearColor]];
   
   /* draw separator line */
   CGPoint pointFrom =  (CGPoint){.x=0.1 * size.width, .y=0.6 * size.height};

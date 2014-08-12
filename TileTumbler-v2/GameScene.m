@@ -148,6 +148,11 @@
   if (_gamePaused) return;
   
   _timer -= delta;
+  
+  if (_timer <= 0) {
+    [self timerEnded];
+  }
+  
   [_header updateTimer:(int)_timer];
 }
 

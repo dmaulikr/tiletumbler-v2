@@ -8,6 +8,8 @@
 
 #define UI_FONT @"CaviarDreams.ttf"
 
+#define TILE_SPAWN 2
+
 @interface IntroScene : CCScene {
   
   CCDrawNode *_background;
@@ -19,6 +21,8 @@
   CCLabelTTF *_button2;
   
   OptionLayer *_options;
+  
+  float _timeTillTile;
 }
 
 + (IntroScene *)scene;
