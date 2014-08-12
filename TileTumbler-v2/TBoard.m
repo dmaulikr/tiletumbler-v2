@@ -6,6 +6,16 @@
 
 @implementation TBoard
 
+#pragma mark Properties
+
+-(int) boardWidth {
+  return _boardSize.width;
+}
+
+-(int) boardHeight {
+  return _boardSize.height;
+}
+
 #pragma mark Creation
 
 +(TBoard *) boardWithSize:(CGSize)size {

@@ -2,6 +2,7 @@
 #import "cocos2d.h"
 
 #import "TBoard.h"
+#import "GameHeader.h"
 
 #define TILE_CONNECTIONS 3
 
@@ -10,6 +11,9 @@
  * tracking of score and game times and displaying UI elements.
  */
 @interface GameScene : CCScene {
+  
+  /* The header */
+  GameHeader *_header;
   
   /* The game board */
   TBoard *_board;

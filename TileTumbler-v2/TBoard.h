@@ -30,6 +30,11 @@
   NSMutableArray *_tiles;
 }
 
+#pragma mark Board Properties
+
+@property (readonly,getter = boardWidth) int TileWidth;
+@property (readonly,getter = boardHeight) int TileHeight;
+
 #pragma mark Creation
 
 /**

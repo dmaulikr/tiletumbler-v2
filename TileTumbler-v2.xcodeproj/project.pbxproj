@@ -208,6 +208,8 @@
 		56FD18631999042300D51FB8 /* TColour.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD18621999042300D51FB8 /* TColour.m */; };
 		56FD186619990A1900D51FB8 /* TTile.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD186519990A1900D51FB8 /* TTile.png */; };
 		56FD1869199A0B7300D51FB8 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD1868199A0B7300D51FB8 /* GameScene.m */; };
+		56FD186D199A100A00D51FB8 /* GameHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD186C199A100A00D51FB8 /* GameHeader.m */; };
+		56FD1870199A168B00D51FB8 /* CaviarDreams.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56FD186F199A168B00D51FB8 /* CaviarDreams.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -630,6 +632,9 @@
 		56FD186519990A1900D51FB8 /* TTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TTile.png; path = Resources/Nodes/TTile.png; sourceTree = "<group>"; };
 		56FD1867199A0B7300D51FB8 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		56FD1868199A0B7300D51FB8 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		56FD186B199A100A00D51FB8 /* GameHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHeader.h; sourceTree = "<group>"; };
+		56FD186C199A100A00D51FB8 /* GameHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameHeader.m; sourceTree = "<group>"; };
+		56FD186F199A168B00D51FB8 /* CaviarDreams.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = CaviarDreams.ttf; path = Resources/Fonts/CaviarDreams.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -703,6 +708,7 @@
 		56FD15E31998FFE100D51FB8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				56FD186E199A166700D51FB8 /* Fonts */,
 				56FD1864199909EA00D51FB8 /* Nodes */,
 				56FD15E41998FFE100D51FB8 /* Default.png */,
 				56FD15E61998FFE100D51FB8 /* Default@2x.png */,
@@ -1445,6 +1451,7 @@
 		56FD18471998FFE400D51FB8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				56FD186A199A0FE200D51FB8 /* Layers */,
 				56FD185A199900BB00D51FB8 /* Nodes */,
 				56FD1859199900B300D51FB8 /* Scenes */,
 				56FD18481998FFE400D51FB8 /* AppDelegate.h */,
@@ -1483,6 +1490,23 @@
 				56FD186519990A1900D51FB8 /* TTile.png */,
 			);
 			name = Nodes;
+			sourceTree = "<group>";
+		};
+		56FD186A199A0FE200D51FB8 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				56FD186B199A100A00D51FB8 /* GameHeader.h */,
+				56FD186C199A100A00D51FB8 /* GameHeader.m */,
+			);
+			name = Layers;
+			sourceTree = "<group>";
+		};
+		56FD186E199A166700D51FB8 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				56FD186F199A168B00D51FB8 /* CaviarDreams.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1567,6 +1591,7 @@
 				56FD15FE1998FFE100D51FB8 /* Icon-Small-50.png in Resources */,
 				56FD18421998FFE400D51FB8 /* LICENSE_Chipmunk.txt in Resources */,
 				56FD15F21998FFE100D51FB8 /* Icon-72.png in Resources */,
+				56FD1870199A168B00D51FB8 /* CaviarDreams.ttf in Resources */,
 				56FD17D41998FFE400D51FB8 /* LICENSE_CCBReader.txt in Resources */,
 				56FD17441998FFE300D51FB8 /* LICENSE_cocos2d.txt in Resources */,
 				56FD15E91998FFE100D51FB8 /* Default-568h@2x.png in Resources */,
@@ -1614,6 +1639,7 @@
 				56FD184A1998FFE500D51FB8 /* AppDelegate.m in Sources */,
 				56FD179F1998FFE400D51FB8 /* OALTools.m in Sources */,
 				56FD176F1998FFE300D51FB8 /* ALContext.m in Sources */,
+				56FD186D199A100A00D51FB8 /* GameHeader.m in Sources */,
 				56FD17801998FFE400D51FB8 /* ALWrapper.m in Sources */,
 				56FD17CD1998FFE400D51FB8 /* CCBSequenceProperty.m in Sources */,
 				56FD17D01998FFE400D51FB8 /* CCBLocalizationManager.m in Sources */,
@@ -1917,6 +1943,7 @@
 				56FD18551998FFE500D51FB8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		56FD18561998FFE500D51FB8 /* Build configuration list for PBXNativeTarget "TileTumbler-v2" */ = {
 			isa = XCConfigurationList;
@@ -1925,6 +1952,7 @@
 				56FD18581998FFE500D51FB8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

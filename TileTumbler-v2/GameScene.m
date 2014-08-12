@@ -15,6 +15,7 @@
   if (!self) return nil;
   
   [self createBoard];
+  [self createHeader];
   
   self.userInteractionEnabled = YES;
   
@@ -35,7 +36,31 @@
   [_board setPositionType:CCPositionTypeNormalized];
   [_board setPosition:ccp(0,0)];
   
-  [self addChild:_board];
+  [self addChild:_board z:0];
+}
+
+/**
+ * Initialises a header interface object and assigns appropriate values
+ * to it's labels and callbacks
+ */
+-(void) createHeader {
+  
+  CGSize headerSize = (CGSize){.width=1*self.contentSizeInPoints.width,
+                .height=(1/(float)_board.TileHeight)*self.contentSizeInPoints.height};
+  _header = [GameHeader headerWithSize:headerSize];
+  
+  [_header updateScore:0];
+  [_header updateTimer:300];
+  
+  __weak GameScene* weakSelf = self;
+  _header.onPause = ^() {
+    [weakSelf pauseChosen];
+  };
+  
+  [_header setPositionType:CCPositionTypeNormalized];
+  [_header setPosition:(CGPoint){.x=0,.y=1-(1/(float)_board.TileHeight)}];
+  
+  [self addChild:_header z:1];
 }
 
 #pragma mark Board Interaction
@@ -70,6 +95,14 @@
 #pragma mark Game State
 
 /**
+ * Handles responding to the pause button being pressed
+ */
+-(void) pauseChosen {
+  
+  NSLog(@"Pause Chosen.");
+}
+
+/**
  * Adds the given value to the score and handles any appropriate response
  * required.
  *
@@ -78,6 +111,7 @@
 -(void) updateScore:(int)scoreChange {
   
   _score += scoreChange;
+  [_header updateScore:_score];
 }
 
 @end
