@@ -2,7 +2,7 @@ Tile Tumbler v2
 ===============
 
 ![alt tag](http://ronanturner.net/statuses/works-yes.png)
-![alt tag](http://ronanturner.net/statuses/status-inactive.png)
+![alt tag](http://ronanturner.net/statuses/status-active.png)
 
 1. Intro
 --------
