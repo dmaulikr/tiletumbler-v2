@@ -11,6 +11,8 @@
   
   CCLabelTTF *titleLabel;
   CCLabelTTF *returnLabel;
+  CCLabelTTF *menuLabel;
+  BOOL _showMenu;
   
   /* Toggle Area */
   CCButton *musicToggle;
@@ -27,7 +29,7 @@
 #pragma mark Creation
 
 /* Creates and initialises a standard layer */
-+(OptionLayer*) layer;
++(OptionLayer*) layerWithMenu:(BOOL)showMenu;
 
 #pragma mark Callback Events
 

@@ -90,7 +90,7 @@
 
 -(void) createOptions {
   
-  _options = [OptionLayer layer];
+  _options = [OptionLayer layerWithMenu:NO];
   
   [_options setPosition:(CGPoint){.x=0,.y=0}];
   

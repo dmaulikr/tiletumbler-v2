@@ -1,5 +1,6 @@
 
 #import "OptionLayer.h"
+#import "IntroScene.h"
 
 #import "TColour.h"
 #import "Utility.h"
@@ -8,17 +9,24 @@
 
 #pragma mark Creation 
 
-+(OptionLayer*) layer {
-  return [[self alloc] init];
+/**
+ * Creates an option layer object.
+ *
+ * @param showMenu if true displays a return as well as main menu link
+ */
++(OptionLayer*) layerWithMenu:(BOOL)showMenu {
+  return [[self alloc] initWithMenu:showMenu];
 }
 
--(instancetype) init {
+-(instancetype) initWithMenu:(BOOL)showMenu {
   
   self = [super init];
   if (!self) return nil;
   
   /* Set fullscreen */
   self.contentSize = [CCDirector sharedDirector].viewSize;
+  
+  _showMenu = showMenu;
   
   [self createBackground];
   [self createTitle];
@@ -109,11 +117,23 @@
   returnLabel = [CCLabelTTF labelWithAttributedString:[Utility uiString:@"RETURN" withSize:28]];
   
   [returnLabel setPositionType:CCPositionTypeNormalized];
-  [returnLabel setPosition:(CGPoint){.x=0.5,.y=0.08}];
+  [returnLabel setPosition:(CGPoint){.x=_showMenu ? 0.75 : 0.5,.y=0.08}];
   
   [returnLabel setColor:[TColour colourOne].color];
   
   [self addChild:returnLabel z:1];
+  
+  /* Menu label */
+  if (!_showMenu) return;
+  
+  menuLabel = [CCLabelTTF labelWithAttributedString:[Utility uiString:@"MENU" withSize:28]];
+  
+  [menuLabel setPositionType:CCPositionTypeNormalized];
+  [menuLabel setPosition:(CGPoint){.x=0.25, .y=0.08}];
+  
+  [menuLabel setColor:[TColour colourOne].color];
+  
+  [self addChild:menuLabel z:1];
   
 }
 
@@ -242,6 +262,10 @@
   /* Return selected - call block! */
   if ([returnLabel hitTestWithWorldPos:[touch locationInWorld]]) {
     self.onReturn();
+  } else if ([menuLabel hitTestWithWorldPos:[touch locationInWorld]]) {
+    
+    CCTransition *fade = [CCTransition transitionCrossFadeWithDuration:0.7];
+    [[CCDirector sharedDirector] replaceScene:[IntroScene scene] withTransition:fade];
   }
 }
 

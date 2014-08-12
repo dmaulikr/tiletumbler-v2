@@ -105,7 +105,7 @@
   
   if (_options == nil) {
     
-    _options = [OptionLayer layer];
+    _options = [OptionLayer layerWithMenu:YES];
     
     [_options setPosition:(CGPoint){.x=0,.y=0}];
     

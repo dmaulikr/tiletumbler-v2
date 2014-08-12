@@ -7,7 +7,7 @@
 
 #define TILE_CONNECTIONS 3
 
-#define INITIAL_TIME 10
+#define INITIAL_TIME 60
 
 /**
  * GameScene is our actual main scene, handling interaction with the board,
