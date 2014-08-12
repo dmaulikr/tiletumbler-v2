@@ -114,6 +114,20 @@
 #pragma mark Tile Accessing
 
 /**
+ * Takes a given index into the board and returns the position it represents in
+ * world-space.
+ *
+ * @param point The position on the board
+ * @return Returns a position in world-space coordinates representing lower-left of the
+ *         index.
+ */
+-(CGPoint) convertIndexToWorldSpace:(CGPoint)point {
+  
+  return (CGPoint){.x=(1/_boardSize.width)*point.x,
+                   .y=(1/_boardSize.height)*point.y};
+}
+
+/**
  * @return Takes the given point-index and converts it to an integer index into _tiles.
  * 
  * @note Returns -1 if index is invalid.
@@ -254,9 +268,16 @@
         } else if (nullCount > 0) {
           
           /* Exchange our null and tile */
-          [tile setPosition:(CGPoint){.x=x*tile.contentSize.width,
-                                      .y=(y-nullCount)*tile.contentSize.height}];
           [_tiles exchangeObjectAtIndex:intIndex-nullCount withObjectAtIndex:intIndex];
+          
+          CGPoint newPosition = (CGPoint){.x=x,.y=(y-nullCount)};
+          newPosition = [self convertIndexToWorldSpace:newPosition];
+          
+          /* Create a move action to move towards the lower position */
+          [tile stopAllActions];
+          
+          id moveTo = [CCActionMoveTo actionWithDuration:TILE_DROP_DURATION position:newPosition];
+          [tile runAction:moveTo];
         }
       }
       
@@ -266,9 +287,20 @@
         for (int y = _boardSize.height - nullCount; y < _boardSize.height; y++) {
           
           /* Create a new tile for this position */
-          [self createTileForPoint:(CGPoint){.x=x,.y=y}];
+          TTile *tile = [self createTileForPoint:(CGPoint){.x=x,.y=y}];
           
-          // XXX: Make the tile a little above and move downwards.
+          /* Move the tile to be above the furthest tile we can see and move downwards
+             like the rest */
+          CGPoint target = (CGPoint){.x=x,.y=y};
+          CGPoint upper = (CGPoint){.x=x,.y=y+nullCount};
+          
+          [tile setPosition:[self convertIndexToWorldSpace:upper]];
+          
+          id moveTo = [CCActionMoveTo actionWithDuration:TILE_DROP_DURATION
+                                                position:[self convertIndexToWorldSpace:target]];
+          
+          [tile stopAllActions];
+          [tile runAction:moveTo];
         }
       }
     }
@@ -307,7 +339,14 @@
     
     /* Remove from our containers: our children and _tiles array */
     [_tiles replaceObjectAtIndex:index withObject:[NSNull null]];
-    [self removeChild:tile];
+    
+    /* Fade out our tile */
+    id fadeAction = [CCActionFadeOut actionWithDuration:TILE_FADE_DURATION];
+    id removeAction = [CCActionCallBlock actionWithBlock:^{
+      [self removeChild:tile];
+    }];
+    
+    [tile runAction:[CCActionSequence actionOne:fadeAction two:removeAction]];
    
     /* Set invalidated if we've removed any tiles */
     _invalidated = YES;

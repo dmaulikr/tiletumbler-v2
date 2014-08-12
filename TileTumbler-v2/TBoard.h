@@ -3,6 +3,10 @@
 
 #import "TTile.h"
 
+#define TILE_DROP_DURATION 0.5
+
+#define TILE_FADE_DURATION 0.5
+
 /**
  * TBoard represents a Tile-Board. This handles the control of a group of
  * tiles and provides an interface for interacting with these tiles.
