@@ -1,5 +1,7 @@
 
 #import "IntroScene.h"
+#import "GameScene.h"
+
 #import "Utility.h"
 
 @implementation IntroScene
@@ -86,10 +88,13 @@
   /* Custom test for label interaction, to be able to use NSAttributedString */
   if ([_button1 hitTestWithWorldPos:[touch locationInWorld]]) {
     
-    NSLog(@"Play chosen");
+    /* Transition to GameScene */
+    CCTransition *trans = [CCTransition transitionCrossFadeWithDuration:2];
+    
+    [[CCDirector sharedDirector] replaceScene:[GameScene scene] withTransition:trans];
   } else if ([_button2 hitTestWithWorldPos:[touch locationInWorld]]) {
     
-    NSLog(@"Optiosn chosen");
+    NSLog(@"Options chosen");
   }
 }
 
