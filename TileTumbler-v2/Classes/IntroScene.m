@@ -20,6 +20,7 @@
   [self createBackground];
   [self createTitle];
   [self createMenu];
+  [self createOptions];
   
   self.userInteractionEnabled = YES;
   
@@ -81,6 +82,30 @@
   [self addChild:_button2 z:2];
 }
 
+-(void) createOptions {
+  
+  _options = [OptionLayer layer];
+  
+  [_options setPosition:(CGPoint){.x=0,.y=0}];
+  
+  __weak IntroScene* weakSelf = self;
+  _options.onReturn = ^() {
+    [weakSelf optionsReturn];
+  };
+  
+  /* Add our options but make invisible for the moment */
+  [_options setVisible:NO];
+  [self addChild:_options z:5];
+}
+
+#pragma mark Responders
+
+-(void) optionsReturn {
+  
+  /* Hide options away again */
+  [_options setVisible:NO];
+}
+
 #pragma mark Touch Interaction
 
 -(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
@@ -94,7 +119,7 @@
     [[CCDirector sharedDirector] replaceScene:[GameScene scene] withTransition:trans];
   } else if ([_button2 hitTestWithWorldPos:[touch locationInWorld]]) {
     
-    NSLog(@"Options chosen");
+    [_options setVisible:YES];
   }
 }
 

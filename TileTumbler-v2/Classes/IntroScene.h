@@ -2,6 +2,8 @@
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 
+#import "OptionLayer.h"
+
 #import "TBoard.h"
 
 #define UI_FONT @"CaviarDreams.ttf"
@@ -15,6 +17,8 @@
   
   CCLabelTTF *_button1;
   CCLabelTTF *_button2;
+  
+  OptionLayer *_options;
 }
 
 + (IntroScene *)scene;

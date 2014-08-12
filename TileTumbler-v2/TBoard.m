@@ -313,6 +313,9 @@
           [tile runAction:moveTo];
         }
       }
+      
+      /* We're now a valid board. */
+      _invalidated = NO;
     }
   }
 }

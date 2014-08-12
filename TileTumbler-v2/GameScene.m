@@ -1,5 +1,6 @@
 
 #import "GameScene.h"
+#import "IntroScene.h"
 
 @implementation GameScene
 
@@ -51,8 +52,8 @@
                 .height=(1/(float)_board.TileHeight)*self.contentSizeInPoints.height};
   _header = [GameHeader headerWithSize:headerSize];
   
-  [_header updateScore:0];
-  [_header updateTimer:300];
+  [_header updateScore:_score];
+  [_header updateTimer:INITIAL_TIME];
   
   __weak GameScene* weakSelf = self;
   _header.onPause = ^() {
@@ -101,7 +102,40 @@
  */
 -(void) pauseChosen {
   
-  NSLog(@"Pause Chosen.");
+  if (_options == nil) {
+    
+    _options = [OptionLayer layer];
+    
+    [_options setPosition:(CGPoint){.x=0,.y=0}];
+    
+    __weak GameScene* weakSelf = self;
+    _options.onReturn = ^() {
+      [weakSelf optionsReturn];
+    };
+    
+    [self addChild:_options z:5];
+  }
+  
+  [_options setVisible:YES];
+  _gamePaused = YES;
+}
+
+-(void) optionsReturn {
+  
+  /* Hide options away again and resume */
+  [_options setVisible:NO];
+  _gamePaused = NO;
+}
+
+/**
+ * Handles displaying the game over interface when the time runs out.
+ */
+-(void) timerEnded {
+  
+  /* Transition to IntroScene */
+  CCTransition *trans = [CCTransition transitionCrossFadeWithDuration:2];
+  
+  [[CCDirector sharedDirector] replaceScene:[IntroScene scene] withTransition:trans];
 }
 
 /**
@@ -109,6 +143,8 @@
  * state and handling round over scenarios.
  */
 -(void) update:(CCTime)delta {
+  
+  if (_gamePaused) return;
   
   _timer -= delta;
   [_header updateTimer:(int)_timer];
