@@ -1,6 +1,6 @@
 
 #import "AppDelegate.h"
-#import "IntroScene.h"
+#import "GameScene.h"
 
 @implementation AppDelegate
 
@@ -16,7 +16,7 @@
 
 -(CCScene *)startScene
 {
-	return [IntroScene scene];
+	return [GameScene scene];
 }
 
 @end

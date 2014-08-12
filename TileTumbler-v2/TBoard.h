@@ -87,9 +87,4 @@
  */
 -(void) removeTiles:(NSArray *)tiles;
 
-#pragma mark Event Callbacks
-
-/* A block that is called when we have no more valid groups to remove */
-@property (nonatomic,copy) void (^onNoGroups)();
-
 @end

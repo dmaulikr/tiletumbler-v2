@@ -207,6 +207,7 @@
 		56FD18601999015800D51FB8 /* TTile.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD185F1999015800D51FB8 /* TTile.m */; };
 		56FD18631999042300D51FB8 /* TColour.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD18621999042300D51FB8 /* TColour.m */; };
 		56FD186619990A1900D51FB8 /* TTile.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD186519990A1900D51FB8 /* TTile.png */; };
+		56FD1869199A0B7300D51FB8 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD1868199A0B7300D51FB8 /* GameScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -627,6 +628,8 @@
 		56FD18611999042300D51FB8 /* TColour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TColour.h; sourceTree = "<group>"; };
 		56FD18621999042300D51FB8 /* TColour.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TColour.m; sourceTree = "<group>"; };
 		56FD186519990A1900D51FB8 /* TTile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TTile.png; path = Resources/Nodes/TTile.png; sourceTree = "<group>"; };
+		56FD1867199A0B7300D51FB8 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		56FD1868199A0B7300D51FB8 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1455,6 +1458,8 @@
 			children = (
 				56FD184E1998FFE500D51FB8 /* IntroScene.h */,
 				56FD184F1998FFE500D51FB8 /* IntroScene.m */,
+				56FD1867199A0B7300D51FB8 /* GameScene.h */,
+				56FD1868199A0B7300D51FB8 /* GameScene.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -1677,6 +1682,7 @@
 				56FD17501998FFE300D51FB8 /* OALAudioActions.m in Sources */,
 				56FD173C1998FFE300D51FB8 /* TGAlib.m in Sources */,
 				56FD17A81998FFE400D51FB8 /* CCControl.m in Sources */,
+				56FD1869199A0B7300D51FB8 /* GameScene.m in Sources */,
 				56FD16601998FFE200D51FB8 /* CCAnimation.m in Sources */,
 				56FD168B1998FFE200D51FB8 /* CCMotionStreak.m in Sources */,
 				56FD16F01998FFE300D51FB8 /* CCTiledMapObjectGroup.m in Sources */,
