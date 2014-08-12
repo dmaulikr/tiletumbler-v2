@@ -23,6 +23,8 @@
   CCDrawNode *_background;
 }
 
+@property (readonly, getter = scorePosition) CGPoint ScorePosition;
+
 #pragma mark Creation
 
 /**

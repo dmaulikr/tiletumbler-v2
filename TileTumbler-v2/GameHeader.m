@@ -3,6 +3,16 @@
 
 @implementation GameHeader
 
+#pragma mark Accessors
+
+/**
+ * @return Returns the centre position of the score label
+ */
+-(CGPoint) scorePosition {
+  
+  return [_score convertToWorldSpace:[_score positionInPoints]];
+}
+
 #pragma mark Creation
 
 +(GameHeader *) headerWithSize:(CGSize)sizePoints {

@@ -17,6 +17,8 @@
   [self createBoard];
   [self createHeader];
   
+  _timer = INITIAL_TIME;
+  
   self.userInteractionEnabled = YES;
   
   return self;
@@ -79,7 +81,7 @@
   /* Otherwise, remove the tiles and add to score */
   [_board removeTiles:tiles];
   
-  [self updateScore:tiles.count];
+  [self initScoreChange:tiles.count];
 }
 
 #pragma mark Touch Interaction
@@ -100,6 +102,47 @@
 -(void) pauseChosen {
   
   NSLog(@"Pause Chosen.");
+}
+
+/**
+ * Handles all standard updates of the game - mostly managing the game
+ * state and handling round over scenarios.
+ */
+-(void) update:(CCTime)delta {
+  
+  _timer -= delta;
+  [_header updateTimer:(int)_timer];
+}
+
+/**
+ * This method handles displaying the score change label and move
+ * actions towards the score, then adding the score using a callback.
+ *
+ * @param scoreChange The score value to add.
+ */
+-(void) initScoreChange:(int)scoreChange {
+  
+  CCLabelTTF *scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"+%d", scoreChange] fontName:UI_FONT fontSize:UI_FONT_SIZE];
+  
+  [scoreLabel setPosition:_lastTouch];
+  
+  /* Create sequence of move / fade actions */
+  CCActionMoveTo *moveTo = [CCActionMoveTo actionWithDuration:1 position:_header.ScorePosition];
+  
+  CCActionFadeTo *fadeTo = [CCActionFadeTo actionWithDuration:1 opacity:0.5];
+  
+  /* Create a callback to update score and remove label when done */
+  CCActionCallBlock *callback = [CCActionCallBlock actionWithBlock:^{
+    [self updateScore:scoreChange];
+    [self removeChild:scoreLabel];
+  }];
+  
+  /* Spawn the fade and move actions at the same time */
+  CCActionSpawn *spawnActions = [CCActionSpawn actionOne:moveTo two:fadeTo];
+  
+  /* Call this sequence */
+  [scoreLabel runAction:[CCActionSequence actions:spawnActions, callback, nil]];
+  [self addChild:scoreLabel z:2];
 }
 
 /**
