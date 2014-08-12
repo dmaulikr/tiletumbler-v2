@@ -1,5 +1,6 @@
 
 #import "GameScene.h"
+#import "EndScene.h"
 #import "IntroScene.h"
 
 @implementation GameScene
@@ -133,9 +134,9 @@
 -(void) timerEnded {
   
   /* Transition to IntroScene */
-  CCTransition *trans = [CCTransition transitionCrossFadeWithDuration:2];
+  CCTransition *trans = [CCTransition transitionCrossFadeWithDuration:0.8];
   
-  [[CCDirector sharedDirector] replaceScene:[IntroScene scene] withTransition:trans];
+  [[CCDirector sharedDirector] replaceScene:[EndScene sceneWithScore:_score] withTransition:trans];
 }
 
 /**

@@ -218,6 +218,7 @@
 		56FD1880199A524000D51FB8 /* VolMin.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD187E199A524000D51FB8 /* VolMin.png */; };
 		56FD1883199A55A800D51FB8 /* ToggleOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD1881199A55A800D51FB8 /* ToggleOff.png */; };
 		56FD1884199A55A800D51FB8 /* ToggleOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD1882199A55A800D51FB8 /* ToggleOn.png */; };
+		56FD1889199A589E00D51FB8 /* EndScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD1888199A589E00D51FB8 /* EndScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -653,6 +654,8 @@
 		56FD187E199A524000D51FB8 /* VolMin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = VolMin.png; path = Resources/UI/VolMin.png; sourceTree = "<group>"; };
 		56FD1881199A55A800D51FB8 /* ToggleOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ToggleOff.png; path = Resources/UI/ToggleOff.png; sourceTree = "<group>"; };
 		56FD1882199A55A800D51FB8 /* ToggleOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ToggleOn.png; path = Resources/UI/ToggleOn.png; sourceTree = "<group>"; };
+		56FD1887199A589E00D51FB8 /* EndScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndScene.h; sourceTree = "<group>"; };
+		56FD1888199A589E00D51FB8 /* EndScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1487,6 +1490,8 @@
 				56FD184F1998FFE500D51FB8 /* IntroScene.m */,
 				56FD1867199A0B7300D51FB8 /* GameScene.h */,
 				56FD1868199A0B7300D51FB8 /* GameScene.m */,
+				56FD1887199A589E00D51FB8 /* EndScene.h */,
+				56FD1888199A589E00D51FB8 /* EndScene.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -1765,6 +1770,7 @@
 				56FD17571998FFE300D51FB8 /* OALAudioTrack.m in Sources */,
 				56FD17CA1998FFE400D51FB8 /* CCBsequence.m in Sources */,
 				56FD16A61998FFE200D51FB8 /* CCParticleSystemBase.m in Sources */,
+				56FD1889199A589E00D51FB8 /* EndScene.m in Sources */,
 				56FD17BE1998FFE400D51FB8 /* CCAnimationManager.m in Sources */,
 				56FD177C1998FFE400D51FB8 /* ALSource.m in Sources */,
 				56FD162D1998FFE200D51FB8 /* CCEffectGlow.m in Sources */,
