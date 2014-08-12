@@ -1,5 +1,6 @@
 
 #import "GameHeader.h"
+#import "Utility.h"
 
 @implementation GameHeader
 
@@ -134,63 +135,14 @@
 
 -(void) updateScore:(int)value {
   
-  [_score setString:[GameHeader formatScore:value]];
+  [_score setAttributedString:[Utility uiString:[Utility formatScore:value] withSize:UI_FONT_SIZE]];
 }
 
 -(void) updateTimer:(int)value {
 
-  [_timer setString:[GameHeader formatTime:value]];
+  [_timer setAttributedString:[Utility uiString:[Utility formatTime:value] withSize:UI_FONT_SIZE]];
 }
 
 #pragma mark String Functions
-
-/**
- * Takes the time remaining in seconds and returns it formatted in
- * minutes and seconds, minutes visible if > 0 and 's' visible after
- * seconds if minutes is 0.
- *
- * Thus: 1:23 or 23s
- *
- * @param timeRemaining the time remaining in seconds
- * @return Returns a formatted time-string
- */
-+(NSString*) formatTime:(int)timeRemaining {
-  
-  uint minutes = floor((float)timeRemaining / 60);
-  uint seconds = timeRemaining - (minutes * 60);
-  
-  NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-  
-  [numberFormatter setPositiveFormat:@"00"];
-  
-  NSString *secondString = [numberFormatter stringFromNumber:[NSNumber numberWithInt:seconds]];
-  
-  NSString *timeString = [NSString stringWithFormat:@"%d:%@", minutes, secondString];
-  
-  if (minutes == 0) {
-    
-    [numberFormatter setPositiveFormat:@"##s"];
-    
-    secondString = [numberFormatter stringFromNumber:[NSNumber numberWithInt:seconds]];
-    timeString = secondString;
-  }
-  
-  return timeString;
-}
-
-/**
- * Takes in the given score value and returns a formatted score with commas
- * separating numbers.
- *
- * @param value The score value to format
- * @return The formatted string
- */
-+(NSString*) formatScore:(int)value {
-  
-  NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-  [numberFormatter setPositiveFormat:@"#,###,###"];
-  
-  return [numberFormatter stringFromNumber:[NSNumber numberWithInt:value]];
-}
 
 @end

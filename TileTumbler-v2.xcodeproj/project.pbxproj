@@ -210,6 +210,7 @@
 		56FD1869199A0B7300D51FB8 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD1868199A0B7300D51FB8 /* GameScene.m */; };
 		56FD186D199A100A00D51FB8 /* GameHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD186C199A100A00D51FB8 /* GameHeader.m */; };
 		56FD1870199A168B00D51FB8 /* CaviarDreams.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56FD186F199A168B00D51FB8 /* CaviarDreams.ttf */; };
+		56FD1874199A229D00D51FB8 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD1873199A229D00D51FB8 /* Utility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -635,6 +636,8 @@
 		56FD186B199A100A00D51FB8 /* GameHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHeader.h; sourceTree = "<group>"; };
 		56FD186C199A100A00D51FB8 /* GameHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameHeader.m; sourceTree = "<group>"; };
 		56FD186F199A168B00D51FB8 /* CaviarDreams.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = CaviarDreams.ttf; path = Resources/Fonts/CaviarDreams.ttf; sourceTree = "<group>"; };
+		56FD1872199A229D00D51FB8 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		56FD1873199A229D00D51FB8 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1451,6 +1454,7 @@
 		56FD18471998FFE400D51FB8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				56FD1871199A229100D51FB8 /* Utility */,
 				56FD186A199A0FE200D51FB8 /* Layers */,
 				56FD185A199900BB00D51FB8 /* Nodes */,
 				56FD1859199900B300D51FB8 /* Scenes */,
@@ -1507,6 +1511,15 @@
 				56FD186F199A168B00D51FB8 /* CaviarDreams.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		56FD1871199A229100D51FB8 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				56FD1872199A229D00D51FB8 /* Utility.h */,
+				56FD1873199A229D00D51FB8 /* Utility.m */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1619,6 +1632,7 @@
 				56FD16251998FFE200D51FB8 /* CCEffectSaturation.m in Sources */,
 				56FD164C1998FFE200D51FB8 /* CCActionEase.m in Sources */,
 				56FD16E61998FFE300D51FB8 /* CCTexturePVR.m in Sources */,
+				56FD1874199A229D00D51FB8 /* Utility.m in Sources */,
 				56FD17B81998FFE400D51FB8 /* CCTextField.m in Sources */,
 				56FD167A1998FFE200D51FB8 /* CCLabelBMFont.m in Sources */,
 				56FD16591998FFE200D51FB8 /* CCActionProgressTimer.m in Sources */,
