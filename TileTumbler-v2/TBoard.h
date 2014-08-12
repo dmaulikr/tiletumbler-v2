@@ -12,6 +12,13 @@
  */
 @interface TBoard : CCNode {
   
+  /* Represents when the board has had an alteration and requires
+     updating */
+  BOOL _invalidated;
+  
+  /* Have we set everything up yet? */
+  BOOL _initialised;
+  
   /* Represents the size in tile-units of the board */
   CGSize _boardSize;
   
@@ -51,7 +58,7 @@
  * @return Returns a pointer to TTile, otherwise nil if there
  *         is no tile at the given location.
  */
--(TTile *) tileAtPoint:(CGPoint)point;
+-(TTile *) hitTestWithTouch:(CGPoint)point;
 
 /**
  * Finds and returns the group of connected tiles, with origin at the
@@ -65,7 +72,7 @@
  * @return Returns an NSArray with all the connected tiles, if there are none
  *         this will simply be the tile found at the given point.
  */
--(NSArray *) tileGroupAtPoint:(CGPoint)point;
+-(NSArray *) groupTestWithTouch:(CGPoint)point;
 
 #pragma mark Tile Removals
 

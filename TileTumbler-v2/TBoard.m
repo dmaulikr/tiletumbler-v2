@@ -23,9 +23,13 @@
   
   /* Set our content size to be fullscreen */
   self.contentSize = [CCDirector sharedDirector].viewSize;
+  
   _tiles = [NSMutableArray array];
+  _invalidated = NO;
   
   [self createTiles];
+  
+  _initialised = YES;
   
   return self;
 }
@@ -49,46 +53,77 @@
   /* Firstly, clear the entire board */
   [self clearBoard];
   
-  /* Normalised sizing */
-  float xWidth = 1 / _boardSize.width;
-  float yWidth = 1 / _boardSize.height;
-  
-  CGSize size = (CGSize){.width = xWidth, .height = yWidth};
-  
   /* Next, we perform our standard iteration for initialising */
   for (int x = 0; x < _boardSize.width; x++) {
-    float xPos = xWidth * (float)x;
     
     for (int y = 0; y < _boardSize.height; y++) {
-      float yPos = yWidth * (float)y;
-      
-      int colourValue = 1 + (arc4random() % 4);
-      TColour *colour = [TColour colourForNum:colourValue];
       
       /* Initialise our tile and set it's position and size */
-      TTile *tile = [TTile tileWithColour:colour];
-      
-      /* Add first, so that normalised scaling works */
-      [self addChild:tile];
-      [_tiles addObject:tile];
-      
-      /* Anchor our tiles at lower left */
-      [tile setAnchorPoint:ccp(0,0)];
-      
-      [tile setPositionType:CCPositionTypeNormalized];
-      [tile setContentSizeType:CCSizeTypeNormalized];
-      
-      [tile setPosition:ccp(xPos, yPos)];
-      [tile setContentSize:size];
-      
-      /* Scale our texture to fit content size */
-      [tile setScaleX:tile.contentSizeInPoints.width/tile.textureRect.size.width];
-      [tile setScaleY:tile.contentSizeInPoints.height/tile.textureRect.size.height];
+      [self createTileForPoint:(CGPoint){.x=x,.y=y}];
     }
   }
 }
 
+/**
+ * Constructs a tile for the given index into the board, sizes and places it into 
+ * the appropriate location in the _tiles array and adds as a child.
+ *
+ * @param point The point to create the tile at.
+ *
+ * @return Returns a pointer to the created tile.
+ */
+-(TTile *) createTileForPoint:(CGPoint)point {
+  
+  int colourValue = 1 + (arc4random() % 4);
+  TColour *colour = [TColour colourForNum:colourValue];
+  
+  TTile *tile = [TTile tileWithColour:colour];
+  
+  /* Add first, so that normalised scaling works */
+  [self addChild:tile];
+  
+  int index = [self indexFromPoint:point];
+  
+  /* Only do replace if we've initialised everything (therefore _tiles will be populated
+     to do a replace */
+  if (_initialised) {
+    [_tiles replaceObjectAtIndex:index withObject:tile];
+  } else {
+    [_tiles addObject:tile];
+  }
+  
+  /* Anchor our tiles at lower left */
+  [tile setAnchorPoint:ccp(0,0)];
+  
+  [tile setPositionType:CCPositionTypeNormalized];
+  [tile setContentSizeType:CCSizeTypeNormalized];
+  
+  CGSize size = (CGSize){.width=1/_boardSize.width,.height=1/_boardSize.height};
+  CGPoint pos = (CGPoint){.x=point.x*size.width, .y=point.y*size.height};
+  
+  [tile setPosition:pos];
+  [tile setContentSize:size];
+  
+  /* Scale our texture to fit content size */
+  [tile setScaleX:tile.contentSizeInPoints.width/tile.textureRect.size.width];
+  [tile setScaleY:tile.contentSizeInPoints.height/tile.textureRect.size.height];
+  
+  return tile;
+}
+
 #pragma mark Tile Accessing
+
+/**
+ * @return Takes the given point-index and converts it to an integer index into _tiles.
+ * 
+ * @note Returns -1 if index is invalid.
+ */
+-(int) indexFromPoint:(CGPoint)point {
+  
+  if (![self validIndex:point]) return -1;
+  
+  return (int)point.x * _boardSize.height + (int)point.y;
+}
 
 /**
  * @return Returns true if this point contains a valid 'board index' which 
@@ -104,31 +139,37 @@
 
 /**
  * @return Returns the tile contained at the given index into the board.
+ *
+ * @note Can return [NSNull null] if that is what's at the index
  */
 -(TTile*) tileAtIndex:(CGPoint)point {
   
-  if (![self validIndex:point]) return nil;
-  
   /* Index iterates from bottom-up then left-right */
-  uint index = (int)point.x * _boardSize.height + (int)point.y;
+  uint index = [self indexFromPoint:point];
+  
+  /* Invalid point */
+  if (index == -1) return nil;
+  
   return _tiles[index];
 }
 
 #pragma mark Tile Collision
 
--(TTile *) tileAtPoint:(CGPoint)point {
+-(TTile *) hitTestWithTouch:(CGPoint)point {
   
   for (TTile *tile in _tiles) {
+    if (tile == (id)[NSNull null]) continue;
+    
     if ([tile containsPoint:point]) return tile;
   }
   
   return nil;
 }
 
--(NSArray *) tileGroupAtPoint:(CGPoint)point {
+-(NSArray *) groupTestWithTouch:(CGPoint)point {
   
   /* Initiate our recursive search */
-  TTile *tile = [self tileAtPoint:point];
+  TTile *tile = [self hitTestWithTouch:point];
   if (tile == nil) return [NSArray array];
   
   NSMutableArray *group = [NSMutableArray array];
@@ -172,10 +213,63 @@
       
       TTile *adjTile = [self tileAtIndex:adjPoint];
       
+      if (adjTile == (id)[NSNull null]) continue;
+      
       /* If we haven't searched for this tile already and the colour is equal, search! */
       if (![searched containsObject:adjTile] &&  adjTile.Colour == tile.Colour) {
         
         [self tileGroupAtTile:adjTile withSearched:searched];
+      }
+    }
+  }
+}
+
+#pragma mark Board Updates
+
+-(void) update:(CCTime)delta {
+  
+  /* If the board has been flagged as invalid, we are required to iterate over the
+     columns, check for NULL values and replace tiles as appropriate. */
+  if (_invalidated) {
+    
+    /* Proceed column-by-column */
+    for (int x = 0; x < _boardSize.width; x++) {
+      
+      int nullCount = 0;
+      
+      for (int y = 0; y < _boardSize.height; y++) {
+        
+        CGPoint index = (CGPoint){.x=x,.y=y};
+        int intIndex = [self indexFromPoint:index];
+        
+        TTile *tile = [self tileAtIndex:index];
+        
+        /* Null tile, record and continue */
+        if (tile == (id)[NSNull null]) {
+          
+          nullCount++;
+          continue;
+          
+        /* Otherwise, move down by null-count amounts */
+        } else if (nullCount > 0) {
+          
+          /* Exchange our null and tile */
+          [tile setPosition:(CGPoint){.x=x*tile.contentSize.width,
+                                      .y=(y-nullCount)*tile.contentSize.height}];
+          [_tiles exchangeObjectAtIndex:intIndex-nullCount withObjectAtIndex:intIndex];
+        }
+      }
+      
+      /* If we found some null tiles, replace them here */
+      if (nullCount > 0) {
+        
+        for (int y = _boardSize.height - nullCount; y < _boardSize.height; y++) {
+          
+          /* Create a new tile for this position */
+          [self createTileForPoint:(CGPoint){.x=x,.y=y}];
+          
+          // XXX: Make the tile a little above and move downwards.
+        }
       }
     }
   }
@@ -189,8 +283,14 @@
  */
 -(void) clearBoard {
   
+  /* Replace all tiles with boxed nil */
+  for (int i = 0; i < _tiles.count; i++) {
+    [_tiles replaceObjectAtIndex:i withObject:[NSNull null]];
+  }
+  
   [self removeAllChildrenWithCleanup:YES];
-  [_tiles removeAllObjects];
+  
+  _invalidated = YES;
 }
 
 /**
@@ -203,9 +303,14 @@
   
   for (TTile *tile in tiles) {
     
+    int index = [_tiles indexOfObject:tile];
+    
     /* Remove from our containers: our children and _tiles array */
-    if (tile.parent == self) [self removeChild:tile];
-    [_tiles removeObject:tile];
+    [_tiles replaceObjectAtIndex:index withObject:[NSNull null]];
+    [self removeChild:tile];
+   
+    /* Set invalidated if we've removed any tiles */
+    _invalidated = YES;
   }
 }
 

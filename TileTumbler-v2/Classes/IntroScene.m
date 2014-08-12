@@ -32,13 +32,11 @@
 
 -(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
   
-  NSArray *tileGroup = [board tileGroupAtPoint:[touch locationInWorld]];
+  NSArray *tileGroup = [board groupTestWithTouch:[touch locationInWorld]];
   
   if (tileGroup.count > 0) {
     
-    for (TTile *tile in tileGroup) {
-      tile.Colour = [TColour colourThree];
-    }
+    [board removeTiles:tileGroup];
   }
 }
 
