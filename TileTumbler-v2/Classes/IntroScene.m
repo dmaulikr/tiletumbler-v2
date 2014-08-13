@@ -2,6 +2,7 @@
 #import "IntroScene.h"
 #import "GameScene.h"
 #import "EndScene.h"
+#import "ModeScene.h"
 
 #import "Utility.h"
 
@@ -166,7 +167,7 @@
     /* Transition to GameScene */
     CCTransition *trans = [CCTransition transitionCrossFadeWithDuration:0.8];
     
-    [[CCDirector sharedDirector] replaceScene:[GameScene scene] withTransition:trans];
+    [[CCDirector sharedDirector] replaceScene:[ModeScene scene] withTransition:trans];
   } else if ([_button2 hitTestWithWorldPos:[touch locationInWorld]]) {
     
     [_options setVisible:YES];
