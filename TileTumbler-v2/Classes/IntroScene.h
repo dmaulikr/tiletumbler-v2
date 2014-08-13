@@ -3,6 +3,7 @@
 #import "cocos2d-ui.h"
 
 #import "OptionLayer.h"
+#import "TileDropLayer.h"
 
 #import "TBoard.h"
 
@@ -21,6 +22,9 @@
   CCLabelTTF *_button2;
   
   OptionLayer *_options;
+  
+  /* Spawns random tiles as a background */
+  TileDropLayer *_dropLayer;
   
   float _timeTillTile;
 }

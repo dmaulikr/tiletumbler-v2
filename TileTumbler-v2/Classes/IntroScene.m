@@ -27,7 +27,8 @@
   [self createOptions];
   
   /* Create random spawning tiles */
-  _timeTillTile = TILE_SPAWN;
+  _dropLayer = [TileDropLayer layerWithTime:TILE_SPAWN minX:0.05 maxX:0.2 shouldFlip:YES];
+  [self addChild:_dropLayer z:1];
   
   self.userInteractionEnabled = YES;
   
@@ -105,19 +106,6 @@
   [self addChild:_options z:5];
 }
 
-#pragma mark State
-
--(void) update:(CCTime)delta {
-  
-  _timeTillTile -= delta;
-  
-  if (_timeTillTile <= 0) {
-    
-    [self spawnRandomTile];
-    _timeTillTile = TILE_SPAWN + CCRANDOM_MINUS1_1();
-  }
-}
-
 #pragma mark Responders
 
 -(void) optionsReturn {
@@ -126,40 +114,12 @@
   [_options setVisible:NO];
 }
 
--(void) spawnRandomTile {
-  
-  float xPos = (float)(5 + arc4random() % 20) / (float)100;
-  float yPos = 1.2;
-  
-  if (arc4random() % 2 == 0) xPos = 1 - xPos;
-  
-  TTile *tile = [TTile tileWithColour:[TColour colourForNum:1 + arc4random() % 4]];
-  
-  [self addChild:tile z:2];
-  
-  [tile setPositionType:CCPositionTypeNormalized];
-  [tile setPosition:(CGPoint){.x=xPos,.y=yPos}];
-  
-  [tile setAnchorPoint:(CGPoint){.x=0.5,.y=0}];
-  
-  CCActionMoveTo *moveBy = [CCActionMoveBy actionWithDuration:4
-                                                     position:(CGPoint){.x=0, .y=-1.2}];
-  CCActionFadeOut *fadeBy = [CCActionFadeOut actionWithDuration:6];
-  
-  CCActionCallBlock *remove = [CCActionCallBlock actionWithBlock:^{
-    [self removeChild:tile];
-  }];
-  
-  [tile runAction:[CCActionSequence actionOne:[CCActionSpawn actionOne:moveBy two:fadeBy]
-                                          two:remove]];
-}
-
 #pragma mark Touch Interaction
 
 -(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
   
   /* Spawn a random tile each touch! */
-  [self spawnRandomTile];
+  [_dropLayer spawnRandomTile];
   
   /* Custom test for label interaction, to be able to use NSAttributedString */
   if ([_button1 hitTestWithWorldPos:[touch locationInWorld]]) {

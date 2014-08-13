@@ -28,8 +28,6 @@
   [self initLabels];
   [self initButtons];
   
-  self.userInteractionEnabled = YES;
-  
   return self;
 }
 
@@ -69,7 +67,7 @@
   [title setPosition:(CGPoint){.x=0.5, .y=0.88}];
   [title setColor:[TColour colourOne].color];
   
-  [self addChild:title z:1];
+  [self addChild:title z:2];
   
   /**** Category Labels ****/
   _modeLabel = [CCLabelTTF labelWithAttributedString:[Utility uiString:_names[0] withSize:28]];
@@ -78,7 +76,7 @@
   [_modeLabel setPosition:(CGPoint){.x=0.5, .y=0.75}];
   [_modeLabel setColor:[TColour colourTwo].color];
   
-  [self addChild:_modeLabel z:1];
+  [self addChild:_modeLabel z:2];
   
   CCLabelTTF *labelTime = [CCLabelTTF labelWithAttributedString:[Utility uiString:@"TIME LIMIT" withSize:28]];
   
@@ -86,7 +84,7 @@
   [labelTime setPosition:(CGPoint){.x=0.5, .y=0.58}];
   [labelTime setColor:[TColour colourTwo].color];
   
-  [self addChild:labelTime z:1];
+  [self addChild:labelTime z:2];
   
   CCLabelTTF *labelTouch = [CCLabelTTF labelWithAttributedString:[Utility uiString:@"TOUCHES" withSize:28]];
   
@@ -94,7 +92,7 @@
   [labelTouch setPosition:(CGPoint){.x=0.5, .y=0.37}];
   [labelTouch setColor:[TColour colourTwo].color];
   
-  [self addChild:labelTouch z:1];
+  [self addChild:labelTouch z:2];
   
   /**** Descriptor Labels ****/
   _timeLabel = [CCLabelTTF labelWithAttributedString:[Utility uiString:@"60 seconds" withSize:23]];
@@ -103,7 +101,7 @@
   [_timeLabel setPosition:(CGPoint){.x=0.5, .y=0.49}];
   [_timeLabel setColor:[TColour colourThree].color];
   
-  [self addChild:_timeLabel z:1];
+  [self addChild:_timeLabel z:2];
   
   _touchLabel = [CCLabelTTF labelWithAttributedString:[Utility uiString:@"unlimited" withSize:23]];
   
@@ -111,7 +109,7 @@
   [_touchLabel setPosition:(CGPoint){.x=0.5, .y=0.28}];
   [_touchLabel setColor:[TColour colourThree].color];
   
-  [self addChild:_touchLabel z:1];
+  [self addChild:_touchLabel z:2];
 }
 
 -(void) initButtons {
@@ -123,7 +121,7 @@
   [_continueButton setPosition:(CGPoint){.x=0.5, .y=0.10}];
   [_continueButton setColor:[TColour colourOne].color];
   
-  [self addChild:_continueButton z:1];
+  [self addChild:_continueButton z:2];
   
   CCSpriteFrame *left = [CCSpriteFrame frameWithImageNamed:@"ArrowLeft.png"];
   CCSpriteFrame *right = [CCSpriteFrame frameWithImageNamed:@"ArrowRight.png"];
@@ -139,6 +137,10 @@
   
   [_leftButton setTarget:self selector:@selector(buttonChosen:)];
   [_rightButton setTarget:self selector:@selector(buttonChosen:)];
+  
+  // Expand hit area for our small arrows
+  _leftButton.hitAreaExpansion = 20;
+  _rightButton.hitAreaExpansion = 20;
   
   [self addChild:_leftButton];
   [self addChild:_rightButton];

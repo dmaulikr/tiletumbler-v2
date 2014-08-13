@@ -2,6 +2,8 @@
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 
+#import "TileDropLayer.h"
+
 /**
  * The OptionLayer is a node that displays various sliders and toggle-
  * buttons that allow for customisations. This is displayed when the user

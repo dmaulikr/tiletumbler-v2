@@ -222,6 +222,7 @@
 		56FD188F199ACDF400D51FB8 /* ModeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD188E199ACDF400D51FB8 /* ModeScene.m */; };
 		56FD1893199B4D6E00D51FB8 /* ArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD1891199B4D6E00D51FB8 /* ArrowLeft.png */; };
 		56FD1894199B4D6E00D51FB8 /* ArrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD1892199B4D6E00D51FB8 /* ArrowRight.png */; };
+		56FD1897199B5E1100D51FB8 /* TileDropLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD1896199B5E1100D51FB8 /* TileDropLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -663,6 +664,8 @@
 		56FD188E199ACDF400D51FB8 /* ModeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModeScene.m; sourceTree = "<group>"; };
 		56FD1891199B4D6E00D51FB8 /* ArrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ArrowLeft.png; path = Resources/UI/ArrowLeft.png; sourceTree = "<group>"; };
 		56FD1892199B4D6E00D51FB8 /* ArrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ArrowRight.png; path = Resources/UI/ArrowRight.png; sourceTree = "<group>"; };
+		56FD1895199B5E1100D51FB8 /* TileDropLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileDropLayer.h; sourceTree = "<group>"; };
+		56FD1896199B5E1100D51FB8 /* TileDropLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileDropLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1533,6 +1536,8 @@
 				56FD186C199A100A00D51FB8 /* GameHeader.m */,
 				56FD1875199A425900D51FB8 /* OptionLayer.h */,
 				56FD1876199A425900D51FB8 /* OptionLayer.m */,
+				56FD1895199B5E1100D51FB8 /* TileDropLayer.h */,
+				56FD1896199B5E1100D51FB8 /* TileDropLayer.m */,
 			);
 			name = Layers;
 			sourceTree = "<group>";
@@ -1733,6 +1738,7 @@
 				56FD179F1998FFE400D51FB8 /* OALTools.m in Sources */,
 				56FD176F1998FFE300D51FB8 /* ALContext.m in Sources */,
 				56FD186D199A100A00D51FB8 /* GameHeader.m in Sources */,
+				56FD1897199B5E1100D51FB8 /* TileDropLayer.m in Sources */,
 				56FD17801998FFE400D51FB8 /* ALWrapper.m in Sources */,
 				56FD17CD1998FFE400D51FB8 /* CCBSequenceProperty.m in Sources */,
 				56FD17D01998FFE400D51FB8 /* CCBLocalizationManager.m in Sources */,

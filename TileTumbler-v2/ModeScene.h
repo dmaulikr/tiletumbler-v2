@@ -2,6 +2,8 @@
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 
+#import "TileDropLayer.h"
+
 /**
  * Represents our potential game-modes, used in struct
  * to pass game mode information
