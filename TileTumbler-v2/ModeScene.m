@@ -28,6 +28,8 @@
   [self initLabels];
   [self initButtons];
   
+  self.userInteractionEnabled = YES;
+  
   return self;
 }
 
