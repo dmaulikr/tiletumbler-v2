@@ -8,8 +8,6 @@
 
 #define TILE_CONNECTIONS 3
 
-#define INITIAL_TIME 60
-
 /**
  * GameScene is our actual main scene, handling interaction with the board,
  * tracking of score and game times and displaying UI elements.
@@ -31,6 +29,7 @@
   
   float _timer;
   BOOL _gamePaused;
+  BOOL _gameEnded;
   
   /* Holds the number of touches we're allowed */
   int _touchLimit;

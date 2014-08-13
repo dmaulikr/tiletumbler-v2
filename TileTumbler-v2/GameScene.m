@@ -101,6 +101,9 @@
 
 -(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
   
+  /* Don't process the touch if game end reached */
+  if (_gameEnded) return;
+  
   _lastTouch = [touch locationInWorld];
   NSArray *group = [_board groupTestWithTouch:_lastTouch];
   
@@ -117,7 +120,7 @@
     if (_touchLimit <= 0) {
       if (group.count >= 3) _score += group.count;
       
-      [self touchLimitReached];
+      _gameEnded = YES;
     }
     
     [_header updateInfo:_touchLimit withTime:NO];
@@ -183,6 +186,7 @@
 -(void) update:(CCTime)delta {
   
   if (_gamePaused) return;
+  if (_gameEnded) return;
   
   /* Updates if game-mode is timed */
   if (_mode == kModeTimed) {
@@ -190,7 +194,15 @@
     _timer -= delta;
     
     if (_timer <= 0) {
-      [self timerEnded];
+      
+      _gameEnded = YES;
+      
+      /* If we have no running score change actions, call timer-ended, otherwise the
+         score change will do it when it finishes. */
+      if (![self getChildByName:@"change" recursively:NO]) {
+        
+        [self timerEnded];
+      }
     }
     
     [_header updateInfo:_timer withTime:YES];
@@ -206,6 +218,7 @@
 -(void) initScoreChange:(int)scoreChange {
   
   CCLabelTTF *scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"+%d", scoreChange] fontName:UI_FONT fontSize:UI_FONT_SIZE];
+  scoreLabel.name = @"change";
   
   [scoreLabel setPosition:_lastTouch];
   
@@ -218,13 +231,23 @@
   CCActionCallBlock *callback = [CCActionCallBlock actionWithBlock:^{
     [self updateScore:scoreChange];
     [self removeChild:scoreLabel];
+    
+    if (_gameEnded && ![self getChildByName:@"change" recursively:NO]) {
+      if (_mode == kModeTouch) {
+        [self touchLimitReached];
+      } else if (_mode == kModeTimed) {
+        [self timerEnded];
+      }
+    }
   }];
   
   /* Spawn the fade and move actions at the same time */
   CCActionSpawn *spawnActions = [CCActionSpawn actionOne:moveTo two:fadeTo];
   
+  CCActionSequence *seq = [CCActionSequence actions:spawnActions, callback, nil];
+  
   /* Call this sequence */
-  [scoreLabel runAction:[CCActionSequence actions:spawnActions, callback, nil]];
+  [scoreLabel runAction:seq];
   [self addChild:scoreLabel z:2];
 }
 

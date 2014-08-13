@@ -150,6 +150,9 @@
   musicToggle = [CCButton buttonWithTitle:@"" spriteFrame:_musicOff ? toggleOff : toggleOn];
   fxToggle = [CCButton buttonWithTitle:@"" spriteFrame:_fxOff ? toggleOff : toggleOn];
   
+  musicToggle.hitAreaExpansion = 10;
+  fxToggle.hitAreaExpansion = 10;
+  
   [musicToggle setAnchorPoint:(CGPoint){.x=1,.y=0.5}];
   [fxToggle setAnchorPoint:(CGPoint){.x=1,.y=0.5}];
   
