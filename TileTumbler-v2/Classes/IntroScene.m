@@ -165,7 +165,7 @@
   if ([_button1 hitTestWithWorldPos:[touch locationInWorld]]) {
     
     /* Transition to GameScene */
-    CCTransition *trans = [CCTransition transitionCrossFadeWithDuration:0.8];
+    CCTransition *trans = [CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.8];
     
     [[CCDirector sharedDirector] replaceScene:[ModeScene scene] withTransition:trans];
   } else if ([_button2 hitTestWithWorldPos:[touch locationInWorld]]) {

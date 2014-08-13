@@ -15,7 +15,7 @@
   
   CCLabelTTF *_score;
   
-  CCLabelTTF *_timer;
+  CCLabelTTF *_info;
   
   CCButton *_pause;
   
@@ -38,6 +38,12 @@
 #pragma mark Label Changes
 
 /**
+ * Call this method to hide the information label at
+ * the top-right.
+ */
+-(void) hideInfo;
+
+/**
  * Alerts the GameHeader to update the score label with a new value.
  *
  * @param value The new score-value to assign
@@ -45,11 +51,13 @@
 -(void) updateScore:(int)value;
 
 /**
- * Updates the timer label to a new value.
+ * Updates the information label to display a new value. Formats as a time value
+ * if isTime is true.
  *
- * @param value The number of seconds left in the game
+ * @param value   The value to display
+ * @param isTime  If true, this value will be display in timer format.
  */
--(void) updateTimer:(int)value;
+-(void) updateInfo:(int)value withTime:(BOOL)isTime;
 
 #pragma mark Responders
 

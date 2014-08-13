@@ -7,19 +7,21 @@
 
 #pragma mark Create & Initialisation
 
-+(GameScene *) scene {
-  return [[self alloc] init];
++(GameScene *) sceneWithType:(GameModeType)type {
+  return [[self alloc] initWithType:type];
 }
 
--(instancetype) init {
+-(instancetype) initWithType:(GameModeType)type {
   
   self = [super init];
   if (!self) return nil;
   
+  _mode = type.mode;
+  _timer = type.seconds;
+  _touchLimit = type.touches;
+  
   [self createBoard];
   [self createHeader];
-  
-  _timer = INITIAL_TIME;
   
   self.userInteractionEnabled = YES;
   
@@ -54,7 +56,15 @@
   _header = [GameHeader headerWithSize:headerSize];
   
   [_header updateScore:_score];
-  [_header updateTimer:INITIAL_TIME];
+  
+  /* Display information label differently based on game mode */
+  if (_mode == kModeTimed) {
+    [_header updateInfo:_timer withTime:YES];
+  } else if (_mode == kModeTouch) {
+    [_header updateInfo:_touchLimit withTime:NO];
+  } else {
+    [_header hideInfo];
+  }
   
   __weak GameScene* weakSelf = self;
   _header.onPause = ^() {
@@ -94,6 +104,23 @@
   NSArray *group = [_board groupTestWithTouch:_lastTouch];
   
   [self groupTouched:group];
+  
+  /* Updates if game mode is touch based */
+  if (_mode == kModeTouch) {
+    
+    /* Only increase touch limit if we touched a group of min. number or more. */
+    if (group.count >= TILE_CONNECTIONS) {
+      _touchLimit--;
+    }
+    
+    if (_touchLimit <= 0) {
+      if (group.count >= 3) _score += group.count;
+      
+      [self touchLimitReached];
+    }
+    
+    [_header updateInfo:_touchLimit withTime:NO];
+  }
 }
 
 #pragma mark Game State
@@ -140,6 +167,15 @@
 }
 
 /**
+ * Handles displaying the game over interface when the touch limit runs out.
+ */
+-(void) touchLimitReached {
+  
+  // Currently performs same as this method
+  [self timerEnded];
+}
+
+/**
  * Handles all standard updates of the game - mostly managing the game
  * state and handling round over scenarios.
  */
@@ -147,13 +183,17 @@
   
   if (_gamePaused) return;
   
-  _timer -= delta;
-  
-  if (_timer <= 0) {
-    [self timerEnded];
+  /* Updates if game-mode is timed */
+  if (_mode == kModeTimed) {
+    
+    _timer -= delta;
+    
+    if (_timer <= 0) {
+      [self timerEnded];
+    }
+    
+    [_header updateInfo:_timer withTime:YES];
   }
-  
-  [_header updateTimer:(int)_timer];
 }
 
 /**

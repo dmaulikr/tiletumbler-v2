@@ -35,7 +35,7 @@
   [self createScoreLabel];
   
   // Create our timer label
-  [self createTimerLabel];
+  [self createInfoLabel];
   
   // Create our pause button
   [self createPauseButton];
@@ -91,22 +91,23 @@
 }
 
 /**
- * Creates and positions the timer label at the right-side of the header-bar.
+ * Creates and positions the label at the right-side of the header-bar that contains our
+ * information - i.e touch limit or time
  */
--(void) createTimerLabel {
+-(void) createInfoLabel {
   
   CGPoint anchor = (CGPoint){.x=1,.y=0.5};
   CGPoint pos = (CGPoint){.x=0.95,.y=0.5};
   
-  _timer = [CCLabelTTF labelWithString:@"" fontName:UI_FONT fontSize:UI_FONT_SIZE];
+  _info = [CCLabelTTF labelWithString:@"" fontName:UI_FONT fontSize:UI_FONT_SIZE];
   
-  [self addChild:_timer];
+  [self addChild:_info];
   
   /* Assign position and anchor point */
-  [_timer setPositionType:CCPositionTypeNormalized];
-  [_timer setPosition:pos];
+  [_info setPositionType:CCPositionTypeNormalized];
+  [_info setPosition:pos];
   
-  [_timer setAnchorPoint:anchor];
+  [_info setAnchorPoint:anchor];
 }
 
 /**
@@ -133,14 +134,20 @@
 
 #pragma mark Label Changes
 
+-(void) hideInfo {
+  
+  [_info setVisible:NO];
+}
+
 -(void) updateScore:(int)value {
   
   [_score setAttributedString:[Utility uiString:[Utility formatScore:value] withSize:UI_FONT_SIZE]];
 }
 
--(void) updateTimer:(int)value {
-
-  [_timer setAttributedString:[Utility uiString:[Utility formatTime:value] withSize:UI_FONT_SIZE]];
+-(void) updateInfo:(int)value withTime:(BOOL)isTime {
+  
+  NSString *text = isTime ? [Utility formatTime:value] : [NSString stringWithFormat:@"%d", value];
+  [_info setAttributedString:[Utility uiString:text withSize:UI_FONT_SIZE]];
 }
 
 #pragma mark String Functions

@@ -102,7 +102,7 @@
     /* Transition to GameScene */
     CCTransition *trans = [CCTransition transitionCrossFadeWithDuration:0.8];
     
-    [[CCDirector sharedDirector] replaceScene:[GameScene scene] withTransition:trans];
+    [[CCDirector sharedDirector] replaceScene:[ModeScene scene] withTransition:trans];
   } else if ([menuLabel hitTestWithWorldPos:[touch locationInWorld]]) {
     
     /* Transition to Main Menu */

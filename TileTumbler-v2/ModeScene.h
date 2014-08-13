@@ -3,6 +3,27 @@
 #import "cocos2d-ui.h"
 
 /**
+ * Represents our potential game-modes, used in struct
+ * to pass game mode information
+ */
+typedef enum {
+  kModeZen=2,
+  kModeTimed=0,
+  kModeTouch=1
+} GameMode;
+
+struct GameModeType {
+  GameMode mode;
+  
+  // Holds touch limit for this mode
+  int touches;
+  
+  // Holds seconds limit for this mode
+  int seconds;
+};
+typedef struct GameModeType GameModeType;
+
+/**
  * ModeScene displays a selection between the various
  * game modes we can use and displays information, allowing
  * cycling through and picking one.

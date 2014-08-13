@@ -1,5 +1,6 @@
 
 #import "ModeScene.h"
+#import "GameScene.h"
 #import "Utility.h"
 #import "TColour.h"
 
@@ -172,6 +173,13 @@
   if ([_continueButton hitTestWithWorldPos:[touch locationInWorld]]) {
     
     /* Transition to game scene with attributes selected */
+    CCTransition *trans = [CCTransition transitionCrossFadeWithDuration:0.8];
+    
+    GameModeType _mode = (GameModeType){.mode=(GameMode)_currentMode,
+                                        .touches=[_touches[_currentMode] intValue],
+                                        .seconds=[_times[_currentMode] intValue]};
+    
+    [[CCDirector sharedDirector] replaceScene:[GameScene sceneWithType:_mode] withTransition:trans];
   }
 }
 

@@ -2,6 +2,7 @@
 #import "cocos2d.h"
 
 #import "TBoard.h"
+#import "ModeScene.h"
 #import "GameHeader.h"
 #import "OptionLayer.h"
 
@@ -26,13 +27,18 @@
   int _score;
   
   /* Holds the number of seconds left in this round. */
+  GameMode _mode;
+  
   float _timer;
   BOOL _gamePaused;
+  
+  /* Holds the number of touches we're allowed */
+  int _touchLimit;
   
   /* Holds the last position of our touch */
   CGPoint _lastTouch;
 }
 
-+(GameScene *) scene;
++(GameScene *) sceneWithType:(GameModeType)type;
 
 @end
