@@ -139,20 +139,16 @@
 
 -(void) createToggles {
   
-  /* Set toggle states */
-  _musicOn = YES;
-  _fxOn = YES;
-  
   /* Load toggle sprite frames */
   CCSpriteFrame *toggleOn = [CCSpriteFrame frameWithImageNamed:@"ToggleOn.png"];
-  CCSpriteFrame *toggleOff = [CCSpriteFrame frameWithImageNamed:@"ToggleOn.png"];
+  CCSpriteFrame *toggleOff = [CCSpriteFrame frameWithImageNamed:@"ToggleOff.png"];
   
-  _musicOn = ![OALSimpleAudio sharedInstance].bgMuted;
-  _fxOn = ![OALSimpleAudio sharedInstance].effectsMuted;
+  _musicOff = [OALSimpleAudio sharedInstance].bgMuted;
+  _fxOff = [OALSimpleAudio sharedInstance].effectsMuted;
   
   /* Create toggle sprites */
-  musicToggle = [CCButton buttonWithTitle:@"" spriteFrame:_musicOn ? toggleOn : toggleOff];
-  fxToggle = [CCButton buttonWithTitle:@"" spriteFrame:_fxOn ? toggleOn : toggleOff];
+  musicToggle = [CCButton buttonWithTitle:@"" spriteFrame:_musicOff ? toggleOff : toggleOn];
+  fxToggle = [CCButton buttonWithTitle:@"" spriteFrame:_fxOff ? toggleOff : toggleOn];
   
   [musicToggle setAnchorPoint:(CGPoint){.x=1,.y=0.5}];
   [fxToggle setAnchorPoint:(CGPoint){.x=1,.y=0.5}];
@@ -185,6 +181,7 @@
   
   /* Create the music slider first */
   musicSlider = [[CCSlider alloc] initWithBackground:sliderBackground andHandleImage:sliderTack];
+  musicSlider.handle.hitAreaExpansion = 10;
   
   [self addChild:musicSlider z:2];
   
@@ -193,13 +190,13 @@
   [musicSlider setPositionType:CCPositionTypeNormalized];
   [musicSlider setPosition:(CGPoint){.x=0.5, .y=0.42}];
   
-  [musicSlider setSliderValue:[OALSimpleAudio sharedInstance].bgVolume];
+  [musicSlider setSliderValue:pow([OALSimpleAudio sharedInstance].bgVolume, 1.0/4.0)];
   
   [musicSlider setBlock:^(id sender) {
     
     CCSlider *slider = (CCSlider*) sender;
     
-    [OALSimpleAudio sharedInstance].bgVolume = slider.sliderValue;
+    [OALSimpleAudio sharedInstance].bgVolume = pow(slider.sliderValue, 4);
   }];
   
   /* Volume icons */
@@ -220,6 +217,7 @@
   
   /* Fx Slider */
   fxSlider = [[CCSlider alloc] initWithBackground:sliderBackground andHandleImage:sliderTack];
+  fxSlider.handle.hitAreaExpansion = 10;
   
   [self addChild:fxSlider z:2];
   
@@ -228,13 +226,14 @@
   [fxSlider setPositionType:CCPositionTypeNormalized];
   [fxSlider setPosition:(CGPoint){.x=0.5, .y=0.22}];
   
-  [fxSlider setSliderValue:[OALSimpleAudio sharedInstance].effectsVolume];
+  [fxSlider setSliderValue:pow([OALSimpleAudio sharedInstance].effectsVolume, 1.0/4.0)];
   
   [fxSlider setBlock:^(id sender) {
     
     CCSlider *slider = (CCSlider*) sender;
     
-    [OALSimpleAudio sharedInstance].effectsVolume = slider.sliderValue;
+    [OALSimpleAudio sharedInstance].effectsVolume = pow(slider.sliderValue, 4);
+    [[OALSimpleAudio sharedInstance] playEffect:@"tile-hit.mp3"];
   }];
   
   /* Volume icons */
@@ -262,8 +261,13 @@
   /* Return selected - call block! */
   if ([returnLabel hitTestWithWorldPos:[touch locationInWorld]]) {
     self.onReturn();
+    [self saveSettings];
+    
   } else if ([menuLabel hitTestWithWorldPos:[touch locationInWorld]]) {
     
+    [self saveSettings];
+    
+    /* Transition scene back to main menu */
     CCTransition *fade = [CCTransition transitionCrossFadeWithDuration:0.7];
     [[CCDirector sharedDirector] replaceScene:[IntroScene scene] withTransition:fade];
   }
@@ -271,22 +275,36 @@
 
 #pragma mark Sound Changes
 
+-(void) saveSettings {
+ 
+  /* Save our settings to user defaults
+   @note We use a simple approximation of exponential for volume values, as per
+   http://www.dr-lex.be/info-stuff/volumecontrols.html */
+  [[NSUserDefaults standardUserDefaults] setFloat:pow(musicSlider.sliderValue,4) forKey:@"Background-Volume"];
+  [[NSUserDefaults standardUserDefaults] setFloat:pow(fxSlider.sliderValue,4) forKey:@"Effects-Volume"];
+  [[NSUserDefaults standardUserDefaults] setBool:_musicOff forKey:@"Background-Muted"];
+  [[NSUserDefaults standardUserDefaults] setBool:_fxOff forKey:@"Effects-Muted"];
+  
+  [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 -(void) toggleBackgroundAudio {
   
-  [OALSimpleAudio sharedInstance].bgMuted = !_musicOn;
-  _musicOn = !_musicOn;
+  _musicOff = !_musicOff;
   
-  NSString *newFrame = _musicOn ? @"ToggleOn.png" : @"ToggleOff.png";
+  [[OALSimpleAudio sharedInstance] setBgMuted:_musicOff];
+  
+  NSString *newFrame = _musicOff ? @"ToggleOff.png" : @"ToggleOn.png";
   
   [musicToggle setBackgroundSpriteFrame:[CCSpriteFrame frameWithImageNamed:newFrame] forState:CCControlStateNormal];
 }
 
 -(void) toggleFxAudio {
   
-  [OALSimpleAudio sharedInstance].effectsMuted = !_fxOn;
-  _fxOn = !_fxOn;
+  _fxOff = !_fxOff;
+  [OALSimpleAudio sharedInstance].effectsMuted = _fxOff;
   
-  NSString *newFrame = _fxOn ? @"ToggleOn.png" : @"ToggleOff.png";
+  NSString *newFrame = _fxOff ? @"ToggleOff.png" : @"ToggleOn.png";
   
   [fxToggle setBackgroundSpriteFrame:[CCSpriteFrame frameWithImageNamed:newFrame] forState:CCControlStateNormal];
 }

@@ -218,7 +218,7 @@
   [searched addObject:tile];
   
   /* Find our index of the given tile */
-  uint intIndex = [_tiles indexOfObject:tile];
+  int intIndex = (int)[_tiles indexOfObject:tile];
   CGPoint index = (CGPoint){.x=intIndex / (int)_boardSize.height,
                             .y=intIndex % (int)_boardSize.height};
   
@@ -348,7 +348,7 @@
   
   for (TTile *tile in tiles) {
     
-    int index = [_tiles indexOfObject:tile];
+    int index = (int)[_tiles indexOfObject:tile];
     
     /* Remove from our containers: our children and _tiles array */
     [_tiles replaceObjectAtIndex:index withObject:[NSNull null]];

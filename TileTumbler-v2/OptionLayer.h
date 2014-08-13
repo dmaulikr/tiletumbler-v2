@@ -18,10 +18,11 @@
   
   /* Toggle Area */
   CCButton *musicToggle;
-  BOOL _musicOn;
+  BOOL _musicOff;
   
   CCButton *fxToggle;
-  BOOL _fxOn;
+  BOOL _playEffect;
+  BOOL _fxOff;
   
   /* Slider Area */
   CCSlider *musicSlider;

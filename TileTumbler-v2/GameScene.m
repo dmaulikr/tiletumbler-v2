@@ -92,8 +92,9 @@
   
   /* Otherwise, remove the tiles and add to score */
   [_board removeTiles:tiles];
+  [[OALSimpleAudio sharedInstance] playEffect:@"tile-hit.mp3"];
   
-  [self initScoreChange:tiles.count];
+  [self initScoreChange:(int)tiles.count];
 }
 
 #pragma mark Touch Interaction

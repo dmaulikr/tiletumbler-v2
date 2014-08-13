@@ -17,6 +17,9 @@
   self = [super init];
   if (!self) return nil;
   
+  /* Load last known game mode */
+  _currentMode = (int)[[NSUserDefaults standardUserDefaults] integerForKey:@"GameMode"];
+  
   /* Initialise our mode information */
   _names = @[@"TIMED", @"TOUCHES", @"ZEN"];
   
@@ -27,6 +30,9 @@
   [self initBackground];
   [self initLabels];
   [self initButtons];
+  
+  /* Update our game mode to display the correct information */
+  [self modeChanged];
   
   self.userInteractionEnabled = YES;
   
@@ -72,7 +78,7 @@
   [self addChild:title z:2];
   
   /**** Category Labels ****/
-  _modeLabel = [CCLabelTTF labelWithAttributedString:[Utility uiString:_names[0] withSize:28]];
+  _modeLabel = [CCLabelTTF labelWithAttributedString:[Utility uiString:_names[_currentMode] withSize:28]];
   
   [_modeLabel setPositionType:CCPositionTypeNormalized];
   [_modeLabel setPosition:(CGPoint){.x=0.5, .y=0.75}];
@@ -158,6 +164,14 @@
     _currentMode = (_currentMode+1) % 3;
   }
   
+  [self modeChanged];
+}
+
+/**
+ * Updates all the labels and buttons based on the current game mode selected.
+ */
+-(void) modeChanged {
+  
   /* Update mode label */
   [_modeLabel setAttributedString:[Utility uiString:_names[_currentMode] withSize:28]];
   
@@ -175,6 +189,10 @@
 -(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
   
   if ([_continueButton hitTestWithWorldPos:[touch locationInWorld]]) {
+    
+    /* Save our last loaded game mode type */
+    [[NSUserDefaults standardUserDefaults] setInteger:_currentMode forKey:@"GameMode"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     /* Transition to game scene with attributes selected */
     CCTransition *trans = [CCTransition transitionCrossFadeWithDuration:0.8];

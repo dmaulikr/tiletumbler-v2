@@ -223,6 +223,8 @@
 		56FD1893199B4D6E00D51FB8 /* ArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD1891199B4D6E00D51FB8 /* ArrowLeft.png */; };
 		56FD1894199B4D6E00D51FB8 /* ArrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD1892199B4D6E00D51FB8 /* ArrowRight.png */; };
 		56FD1897199B5E1100D51FB8 /* TileDropLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD1896199B5E1100D51FB8 /* TileDropLayer.m */; };
+		56FD189B199B71A000D51FB8 /* bg.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56FD1899199B71A000D51FB8 /* bg.mp3 */; };
+		56FD189C199B71A000D51FB8 /* tile-hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56FD189A199B71A000D51FB8 /* tile-hit.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -666,6 +668,8 @@
 		56FD1892199B4D6E00D51FB8 /* ArrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ArrowRight.png; path = Resources/UI/ArrowRight.png; sourceTree = "<group>"; };
 		56FD1895199B5E1100D51FB8 /* TileDropLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileDropLayer.h; sourceTree = "<group>"; };
 		56FD1896199B5E1100D51FB8 /* TileDropLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileDropLayer.m; sourceTree = "<group>"; };
+		56FD1899199B71A000D51FB8 /* bg.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bg.mp3; path = Resources/Audio/bg.mp3; sourceTree = "<group>"; };
+		56FD189A199B71A000D51FB8 /* tile-hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "tile-hit.mp3"; path = "Resources/Audio/tile-hit.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -739,6 +743,7 @@
 		56FD15E31998FFE100D51FB8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				56FD1898199B719800D51FB8 /* Audio */,
 				56FD1878199A4FF000D51FB8 /* UI */,
 				56FD186E199A166700D51FB8 /* Fonts */,
 				56FD1864199909EA00D51FB8 /* Nodes */,
@@ -1598,6 +1603,15 @@
 			name = Buttons;
 			sourceTree = "<group>";
 		};
+		56FD1898199B719800D51FB8 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				56FD1899199B71A000D51FB8 /* bg.mp3 */,
+				56FD189A199B71A000D51FB8 /* tile-hit.mp3 */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1668,6 +1682,8 @@
 			files = (
 				56FD15E71998FFE100D51FB8 /* Default@2x.png in Resources */,
 				56FD186619990A1900D51FB8 /* TTile.png in Resources */,
+				56FD189C199B71A000D51FB8 /* tile-hit.mp3 in Resources */,
+				56FD189B199B71A000D51FB8 /* bg.mp3 in Resources */,
 				56FD1893199B4D6E00D51FB8 /* ArrowLeft.png in Resources */,
 				56FD15FA1998FFE100D51FB8 /* Icon-120.png in Resources */,
 				56FD187B199A4FFA00D51FB8 /* SliderBg.png in Resources */,
