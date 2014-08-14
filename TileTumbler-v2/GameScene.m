@@ -118,7 +118,6 @@
     }
     
     if (_touchLimit <= 0) {
-      if (group.count >= 3) _score += group.count;
       
       _gameEnded = YES;
     }
