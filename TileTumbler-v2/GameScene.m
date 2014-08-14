@@ -166,7 +166,7 @@
   /* Transition to IntroScene */
   CCTransition *trans = [CCTransition transitionCrossFadeWithDuration:0.8];
   
-  [[CCDirector sharedDirector] replaceScene:[EndScene sceneWithScore:_score] withTransition:trans];
+  [[CCDirector sharedDirector] replaceScene:[EndScene sceneWithScore:_score forMode:_mode] withTransition:trans];
 }
 
 /**
