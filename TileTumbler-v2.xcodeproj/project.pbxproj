@@ -225,6 +225,8 @@
 		56FD1897199B5E1100D51FB8 /* TileDropLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD1896199B5E1100D51FB8 /* TileDropLayer.m */; };
 		56FD189B199B71A000D51FB8 /* bg.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56FD1899199B71A000D51FB8 /* bg.mp3 */; };
 		56FD189C199B71A000D51FB8 /* tile-hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56FD189A199B71A000D51FB8 /* tile-hit.mp3 */; };
+		56FD189E199C9EFC00D51FB8 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FD189D199C9EFC00D51FB8 /* GameKit.framework */; };
+		56FD18A1199CA41000D51FB8 /* GCHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD18A0199CA41000D51FB8 /* GCHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -670,6 +672,9 @@
 		56FD1896199B5E1100D51FB8 /* TileDropLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileDropLayer.m; sourceTree = "<group>"; };
 		56FD1899199B71A000D51FB8 /* bg.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bg.mp3; path = Resources/Audio/bg.mp3; sourceTree = "<group>"; };
 		56FD189A199B71A000D51FB8 /* tile-hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "tile-hit.mp3"; path = "Resources/Audio/tile-hit.mp3"; sourceTree = "<group>"; };
+		56FD189D199C9EFC00D51FB8 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		56FD189F199CA41000D51FB8 /* GCHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHelper.h; sourceTree = "<group>"; };
+		56FD18A0199CA41000D51FB8 /* GCHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -680,6 +685,7 @@
 				56FD15CD1998FFE100D51FB8 /* OpenAL.framework in Frameworks */,
 				56FD15D31998FFE100D51FB8 /* UIKit.framework in Frameworks */,
 				56FD15C91998FFE100D51FB8 /* QuartzCore.framework in Frameworks */,
+				56FD189E199C9EFC00D51FB8 /* GameKit.framework in Frameworks */,
 				56FD15D11998FFE100D51FB8 /* AVFoundation.framework in Frameworks */,
 				56FD15D71998FFE100D51FB8 /* CoreGraphics.framework in Frameworks */,
 				56FD15D91998FFE100D51FB8 /* CoreText.framework in Frameworks */,
@@ -715,6 +721,7 @@
 		56FD15C71998FFE100D51FB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				56FD189D199C9EFC00D51FB8 /* GameKit.framework */,
 				56FD15C81998FFE100D51FB8 /* QuartzCore.framework */,
 				56FD15CA1998FFE100D51FB8 /* OpenGLES.framework */,
 				56FD15CC1998FFE100D51FB8 /* OpenAL.framework */,
@@ -1560,6 +1567,8 @@
 			children = (
 				56FD1872199A229D00D51FB8 /* Utility.h */,
 				56FD1873199A229D00D51FB8 /* Utility.m */,
+				56FD189F199CA41000D51FB8 /* GCHelper.h */,
+				56FD18A0199CA41000D51FB8 /* GCHelper.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1656,6 +1665,16 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Ronan Turner";
+				TargetAttributes = {
+					56FD15C41998FFE100D51FB8 = {
+						DevelopmentTeam = 9CYMZ236SH;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = 56FD15C01998FFE100D51FB8 /* Build configuration list for PBXProject "TileTumbler-v2" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1826,6 +1845,7 @@
 				56FD173C1998FFE300D51FB8 /* TGAlib.m in Sources */,
 				56FD17A81998FFE400D51FB8 /* CCControl.m in Sources */,
 				56FD1869199A0B7300D51FB8 /* GameScene.m in Sources */,
+				56FD18A1199CA41000D51FB8 /* GCHelper.m in Sources */,
 				56FD16601998FFE200D51FB8 /* CCAnimation.m in Sources */,
 				56FD168B1998FFE200D51FB8 /* CCMotionStreak.m in Sources */,
 				56FD16F01998FFE300D51FB8 /* CCTiledMapObjectGroup.m in Sources */,
@@ -1923,7 +1943,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ronan Turner (7AVWCS599F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ronan Turner (7AVWCS599F)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1935,6 +1956,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PROVISIONING_PROFILE = "042CDDAA-F455-4F45-BDD7-AA802F8E1079";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1945,7 +1967,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ronan Turner (7AVWCS599F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ronan Turner (7AVWCS599F)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
@@ -1955,6 +1978,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PROVISIONING_PROFILE = "042CDDAA-F455-4F45-BDD7-AA802F8E1079";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1999,6 +2023,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ronan Turner (7AVWCS599F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ronan Turner (7AVWCS599F)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2008,12 +2034,14 @@
 					"\"$(SRCROOT)/$(PROJECT_NAME)/Libraries/Chipmunk/objectivec/include\"",
 				);
 				INFOPLIST_FILE = "TileTumbler-v2/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "042CDDAA-F455-4F45-BDD7-AA802F8E1079";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2023,6 +2051,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ronan Turner (7AVWCS599F)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ronan Turner (7AVWCS599F)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TileTumbler-v2/Supporting Files/Prefix.pch";
@@ -2031,12 +2061,14 @@
 					"\"$(SRCROOT)/$(PROJECT_NAME)/Libraries/Chipmunk/objectivec/include\"",
 				);
 				INFOPLIST_FILE = "TileTumbler-v2/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "042CDDAA-F455-4F45-BDD7-AA802F8E1079";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

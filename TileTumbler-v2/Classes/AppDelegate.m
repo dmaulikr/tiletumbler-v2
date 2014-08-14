@@ -1,11 +1,15 @@
 
 #import "AppDelegate.h"
 #import "IntroScene.h"
+#import "GCHelper.h"
 
 @implementation AppDelegate
 
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  /* Game Center Authentication */
+  [[GCHelper sharedInstance] authenticate];
+  
   /* Assign defaults if not exist */
   if ([[NSUserDefaults standardUserDefaults] objectForKey:@"Background-Volume"] == nil) {
     [[NSUserDefaults standardUserDefaults] setFloat:0.5 forKey:@"Background-Volume"];
