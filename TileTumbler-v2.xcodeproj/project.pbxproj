@@ -231,6 +231,7 @@
 		56FD18A8199CB69000D51FB8 /* GamepadH.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD18A4199CB69000D51FB8 /* GamepadH.png */; };
 		56FD18A9199CB69000D51FB8 /* Trophy.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD18A5199CB69000D51FB8 /* Trophy.png */; };
 		56FD18AA199CB69000D51FB8 /* TrophyH.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD18A6199CB69000D51FB8 /* TrophyH.png */; };
+		56FD18AD199D083900D51FB8 /* AchivementHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD18AC199D083900D51FB8 /* AchivementHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -683,6 +684,8 @@
 		56FD18A4199CB69000D51FB8 /* GamepadH.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GamepadH.png; path = Resources/UI/Icons/GamepadH.png; sourceTree = "<group>"; };
 		56FD18A5199CB69000D51FB8 /* Trophy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Trophy.png; path = Resources/UI/Icons/Trophy.png; sourceTree = "<group>"; };
 		56FD18A6199CB69000D51FB8 /* TrophyH.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TrophyH.png; path = Resources/UI/Icons/TrophyH.png; sourceTree = "<group>"; };
+		56FD18AB199D083900D51FB8 /* AchivementHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchivementHelper.h; sourceTree = "<group>"; };
+		56FD18AC199D083900D51FB8 /* AchivementHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchivementHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1577,6 +1580,8 @@
 				56FD1873199A229D00D51FB8 /* Utility.m */,
 				56FD189F199CA41000D51FB8 /* GCHelper.h */,
 				56FD18A0199CA41000D51FB8 /* GCHelper.m */,
+				56FD18AB199D083900D51FB8 /* AchivementHelper.h */,
+				56FD18AC199D083900D51FB8 /* AchivementHelper.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1810,6 +1815,7 @@
 				56FD178F1998FFE400D51FB8 /* IOSVersion.m in Sources */,
 				56FD16E31998FFE300D51FB8 /* CCTextureCache.m in Sources */,
 				56FD17121998FFE300D51FB8 /* CCDirectorMac.m in Sources */,
+				56FD18AD199D083900D51FB8 /* AchivementHelper.m in Sources */,
 				56FD16231998FFE200D51FB8 /* CCEffectBrightness.m in Sources */,
 				56FD17281998FFE300D51FB8 /* CCProfiling.m in Sources */,
 				56FD17321998FFE300D51FB8 /* CGPointExtension.m in Sources */,
