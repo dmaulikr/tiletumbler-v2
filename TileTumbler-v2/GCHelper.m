@@ -8,6 +8,8 @@
 #pragma mark Creation
 
 static GCHelper *_sharedGCHelper=nil;
+static GKLeaderboardViewController *_leaderboardView=nil;
+static GKAchievementViewController *_achievementView=nil;
 
 +(GCHelper*) sharedInstance
 {
@@ -35,6 +37,10 @@ static GCHelper *_sharedGCHelper=nil;
 
 #pragma mark Authentication
 
+-(BOOL) Authenticated {
+  return _userAuthenticated;
+}
+
 -(void) authenticate {
   
   /* Don't attempt authentication if Game Center not available */
@@ -54,9 +60,53 @@ static GCHelper *_sharedGCHelper=nil;
   };
 }
 
-- (void)authenticationChanged {
+-(void) authenticationChanged {
   
   _userAuthenticated = [GKLocalPlayer localPlayer].isAuthenticated;
+}
+
+#pragma mark Display Methods
+
+-(void) displayAchievements {
+  
+  _achievementView = [GKAchievementViewController new];
+  [_achievementView setViewState:GKGameCenterViewControllerStateAchievements];
+  [_achievementView setAchievementDelegate:self];
+  
+  [[CCDirector sharedDirector] presentViewController:_achievementView animated:YES completion:^{
+    NSLog(@"Achievements displayed.");
+  }];
+}
+
+-(void) displayLeaderboards {
+  
+  _leaderboardView = [GKLeaderboardViewController new];
+  [_leaderboardView setViewState:GKGameCenterViewControllerStateLeaderboards];
+  [_leaderboardView setLeaderboardDelegate:self];
+  
+  [[CCDirector sharedDirector] presentViewController:_leaderboardView animated:YES completion:^{
+    NSLog(@"Leaderboard displayed.");
+  }];
+}
+
+#pragma mark GK Controller Protocol
+
+/**
+ * Called when 'Done' touched on the achievement page, dismisses achievement view controller.
+ */
+-(void) achievementViewControllerDidFinish:(GKAchievementViewController *)viewController {
+  [_achievementView dismissViewControllerAnimated:YES completion:^{
+    NSLog(@"Achievements dismissed.");
+  }];
+}
+
+/**
+ * Called when 'Done' touched on the leaderboard page, dismisses leaderboard view controller.
+ */
+-(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController {
+  [_leaderboardView dismissViewControllerAnimated:YES completion:^{
+    NSLog(@"Leaderboard dismissed.");
+  }];
 }
 
 #pragma mark Helper
@@ -66,7 +116,7 @@ static GCHelper *_sharedGCHelper=nil;
  *
  * @return Returns true if the game center library is available.
  */
-- (BOOL)isGameCenterAvailable {
+-(BOOL) isGameCenterAvailable {
   
   // check for presence of GKLocalPlayer API
   Class gcClass = (NSClassFromString(@"GKLocalPlayer"));

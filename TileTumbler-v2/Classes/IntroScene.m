@@ -4,7 +4,10 @@
 #import "EndScene.h"
 #import "ModeScene.h"
 
+#import "GCHelper.h"
 #import "Utility.h"
+
+#import <GameKit/GameKit.h>
 
 @implementation IntroScene
 
@@ -25,6 +28,7 @@
   [self createTitle];
   [self createMenu];
   [self createOptions];
+  [self createButtons];
   
   /* Create random spawning tiles */
   _dropLayer = [TileDropLayer layerWithTime:TILE_SPAWN minX:0.05 maxX:0.2 shouldFlip:YES];
@@ -104,6 +108,59 @@
   /* Add our options but make invisible for the moment */
   [_options setVisible:NO];
   [self addChild:_options z:5];
+}
+
+-(void) createButtons {
+  
+  CCSpriteFrame *trophyFrame = [CCSpriteFrame frameWithImageNamed:@"Trophy.png"];
+  CCSpriteFrame *trophyFrameH = [CCSpriteFrame frameWithImageNamed:@"TrophyH.png"];
+  
+  CCButton *trophy = [CCButton buttonWithTitle:@""
+                                   spriteFrame:trophyFrame
+                        highlightedSpriteFrame:trophyFrameH
+                           disabledSpriteFrame:trophyFrame];
+  
+  [trophy setPositionType:CCPositionTypeNormalized];
+  [trophy setPosition:(CGPoint){0.3,0.15}];
+  
+  [trophy setTarget:self selector:@selector(displayAchievements)];
+  
+  CCSpriteFrame *gamepadFrame = [CCSpriteFrame frameWithImageNamed:@"Gamepad.png"];
+  CCSpriteFrame *gamepadFrameH = [CCSpriteFrame frameWithImageNamed:@"GamepadH.png"];
+  
+  CCButton *gamepad = [CCButton buttonWithTitle:@""
+                                   spriteFrame:gamepadFrame
+                        highlightedSpriteFrame:gamepadFrameH
+                           disabledSpriteFrame:gamepadFrame];
+  
+  [gamepad setPositionType:CCPositionTypeNormalized];
+  [gamepad setPosition:(CGPoint){0.7,0.15}];
+  
+  [gamepad setTarget:self selector:@selector(displayLeaderboards)];
+  
+  [self addChild:trophy z:2];
+  [self addChild:gamepad z:2];
+}
+
+#pragma mark Game Center Methods
+
+-(void) displayAchievements {
+  
+  if ([GCHelper sharedInstance].Authenticated) {
+    [[GCHelper sharedInstance] displayAchievements];
+  } else {
+    [[GCHelper sharedInstance] authenticate];
+  }
+       
+}
+
+-(void) displayLeaderboards {
+  
+  if ([GCHelper sharedInstance].Authenticated) {
+    [[GCHelper sharedInstance] displayLeaderboards];
+  } else {
+    [[GCHelper sharedInstance] authenticate];
+  }
 }
 
 #pragma mark Responders

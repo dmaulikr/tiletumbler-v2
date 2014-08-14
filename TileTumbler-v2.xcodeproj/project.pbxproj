@@ -227,6 +227,10 @@
 		56FD189C199B71A000D51FB8 /* tile-hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56FD189A199B71A000D51FB8 /* tile-hit.mp3 */; };
 		56FD189E199C9EFC00D51FB8 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FD189D199C9EFC00D51FB8 /* GameKit.framework */; };
 		56FD18A1199CA41000D51FB8 /* GCHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD18A0199CA41000D51FB8 /* GCHelper.m */; };
+		56FD18A7199CB69000D51FB8 /* Gamepad.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD18A3199CB69000D51FB8 /* Gamepad.png */; };
+		56FD18A8199CB69000D51FB8 /* GamepadH.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD18A4199CB69000D51FB8 /* GamepadH.png */; };
+		56FD18A9199CB69000D51FB8 /* Trophy.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD18A5199CB69000D51FB8 /* Trophy.png */; };
+		56FD18AA199CB69000D51FB8 /* TrophyH.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD18A6199CB69000D51FB8 /* TrophyH.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -675,6 +679,10 @@
 		56FD189D199C9EFC00D51FB8 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		56FD189F199CA41000D51FB8 /* GCHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHelper.h; sourceTree = "<group>"; };
 		56FD18A0199CA41000D51FB8 /* GCHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHelper.m; sourceTree = "<group>"; };
+		56FD18A3199CB69000D51FB8 /* Gamepad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Gamepad.png; path = Resources/UI/Icons/Gamepad.png; sourceTree = "<group>"; };
+		56FD18A4199CB69000D51FB8 /* GamepadH.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GamepadH.png; path = Resources/UI/Icons/GamepadH.png; sourceTree = "<group>"; };
+		56FD18A5199CB69000D51FB8 /* Trophy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Trophy.png; path = Resources/UI/Icons/Trophy.png; sourceTree = "<group>"; };
+		56FD18A6199CB69000D51FB8 /* TrophyH.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TrophyH.png; path = Resources/UI/Icons/TrophyH.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1576,6 +1584,7 @@
 		56FD1878199A4FF000D51FB8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				56FD18A2199CB68300D51FB8 /* Icons */,
 				56FD1890199B4D6400D51FB8 /* Buttons */,
 				56FD1886199A55B000D51FB8 /* Sliders */,
 				56FD1885199A55AB00D51FB8 /* Toggle */,
@@ -1619,6 +1628,17 @@
 				56FD189A199B71A000D51FB8 /* tile-hit.mp3 */,
 			);
 			name = Audio;
+			sourceTree = "<group>";
+		};
+		56FD18A2199CB68300D51FB8 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				56FD18A3199CB69000D51FB8 /* Gamepad.png */,
+				56FD18A4199CB69000D51FB8 /* GamepadH.png */,
+				56FD18A5199CB69000D51FB8 /* Trophy.png */,
+				56FD18A6199CB69000D51FB8 /* TrophyH.png */,
+			);
+			name = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1705,11 +1725,13 @@
 				56FD189B199B71A000D51FB8 /* bg.mp3 in Resources */,
 				56FD1893199B4D6E00D51FB8 /* ArrowLeft.png in Resources */,
 				56FD15FA1998FFE100D51FB8 /* Icon-120.png in Resources */,
+				56FD18A9199CB69000D51FB8 /* Trophy.png in Resources */,
 				56FD187B199A4FFA00D51FB8 /* SliderBg.png in Resources */,
 				56FD15F01998FFE100D51FB8 /* Icon@2x.png in Resources */,
 				56FD16021998FFE100D51FB8 /* Icon-Small@2x.png in Resources */,
 				56FD15F41998FFE100D51FB8 /* Icon-72@2x.png in Resources */,
 				56FD15E51998FFE100D51FB8 /* Default.png in Resources */,
+				56FD18A7199CB69000D51FB8 /* Gamepad.png in Resources */,
 				56FD1883199A55A800D51FB8 /* ToggleOff.png in Resources */,
 				56FD1894199B4D6E00D51FB8 /* ArrowRight.png in Resources */,
 				56FD15EE1998FFE100D51FB8 /* Icon.png in Resources */,
@@ -1720,6 +1742,8 @@
 				56FD187F199A524000D51FB8 /* VolMax.png in Resources */,
 				56FD18421998FFE400D51FB8 /* LICENSE_Chipmunk.txt in Resources */,
 				56FD1884199A55A800D51FB8 /* ToggleOn.png in Resources */,
+				56FD18A8199CB69000D51FB8 /* GamepadH.png in Resources */,
+				56FD18AA199CB69000D51FB8 /* TrophyH.png in Resources */,
 				56FD15F21998FFE100D51FB8 /* Icon-72.png in Resources */,
 				56FD187C199A4FFA00D51FB8 /* SliderTack.png in Resources */,
 				56FD1870199A168B00D51FB8 /* CaviarDreams.ttf in Resources */,
