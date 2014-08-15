@@ -44,6 +44,18 @@
   
   [tile setAnchorPoint:(CGPoint){.x=0.5, .y=0}];
   
+  [tile setContentSizeType:CCSizeTypeNormalized];
+  
+  // XXX: Access board size from elsewhere?
+  CGSize size = (CGSize){.width=0.1,.height=1.0/14.0};
+  [tile setContentSize:size];
+  
+  [self addChild:tile];
+  
+  /* Scale our texture to fit content size */
+  [tile setScaleX:tile.contentSizeInPoints.width/tile.textureRect.size.width];
+  [tile setScaleY:tile.contentSizeInPoints.height/tile.textureRect.size.height];
+  
   /* Create actions */
   CCActionMoveBy *moveBy = [CCActionMoveBy actionWithDuration:4 position:(CGPoint){.x=0,.y=-yPos}];
   CCActionFadeOut *fade = [CCActionFadeOut actionWithDuration:7];
@@ -55,8 +67,6 @@
   
   /* Set the actions in motion */
   [tile runAction:[CCActionSequence actionOne:spawn two:remove]];
-  
-  [self addChild:tile];
 }
 
 -(void) update:(CCTime)delta {

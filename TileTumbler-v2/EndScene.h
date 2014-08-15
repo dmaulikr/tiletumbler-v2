@@ -2,9 +2,6 @@
 #import "cocos2d.h"
 
 #import "ModeScene.h"
-#import "GCHelper.h"
-
-#import <GameKit/GameKit.h>
 
 /**
  * The EndScene represents the game-over scene and the display of the final

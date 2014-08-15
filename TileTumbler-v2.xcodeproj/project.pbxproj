@@ -225,13 +225,10 @@
 		56FD1897199B5E1100D51FB8 /* TileDropLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD1896199B5E1100D51FB8 /* TileDropLayer.m */; };
 		56FD189B199B71A000D51FB8 /* bg.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56FD1899199B71A000D51FB8 /* bg.mp3 */; };
 		56FD189C199B71A000D51FB8 /* tile-hit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 56FD189A199B71A000D51FB8 /* tile-hit.mp3 */; };
-		56FD189E199C9EFC00D51FB8 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FD189D199C9EFC00D51FB8 /* GameKit.framework */; };
-		56FD18A1199CA41000D51FB8 /* GCHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD18A0199CA41000D51FB8 /* GCHelper.m */; };
 		56FD18A7199CB69000D51FB8 /* Gamepad.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD18A3199CB69000D51FB8 /* Gamepad.png */; };
 		56FD18A8199CB69000D51FB8 /* GamepadH.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD18A4199CB69000D51FB8 /* GamepadH.png */; };
 		56FD18A9199CB69000D51FB8 /* Trophy.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD18A5199CB69000D51FB8 /* Trophy.png */; };
 		56FD18AA199CB69000D51FB8 /* TrophyH.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD18A6199CB69000D51FB8 /* TrophyH.png */; };
-		56FD18AD199D083900D51FB8 /* AchivementHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD18AC199D083900D51FB8 /* AchivementHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -677,15 +674,10 @@
 		56FD1896199B5E1100D51FB8 /* TileDropLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileDropLayer.m; sourceTree = "<group>"; };
 		56FD1899199B71A000D51FB8 /* bg.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bg.mp3; path = Resources/Audio/bg.mp3; sourceTree = "<group>"; };
 		56FD189A199B71A000D51FB8 /* tile-hit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "tile-hit.mp3"; path = "Resources/Audio/tile-hit.mp3"; sourceTree = "<group>"; };
-		56FD189D199C9EFC00D51FB8 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
-		56FD189F199CA41000D51FB8 /* GCHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHelper.h; sourceTree = "<group>"; };
-		56FD18A0199CA41000D51FB8 /* GCHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHelper.m; sourceTree = "<group>"; };
 		56FD18A3199CB69000D51FB8 /* Gamepad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Gamepad.png; path = Resources/UI/Icons/Gamepad.png; sourceTree = "<group>"; };
 		56FD18A4199CB69000D51FB8 /* GamepadH.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GamepadH.png; path = Resources/UI/Icons/GamepadH.png; sourceTree = "<group>"; };
 		56FD18A5199CB69000D51FB8 /* Trophy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Trophy.png; path = Resources/UI/Icons/Trophy.png; sourceTree = "<group>"; };
 		56FD18A6199CB69000D51FB8 /* TrophyH.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TrophyH.png; path = Resources/UI/Icons/TrophyH.png; sourceTree = "<group>"; };
-		56FD18AB199D083900D51FB8 /* AchivementHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AchivementHelper.h; sourceTree = "<group>"; };
-		56FD18AC199D083900D51FB8 /* AchivementHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AchivementHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -696,7 +688,6 @@
 				56FD15CD1998FFE100D51FB8 /* OpenAL.framework in Frameworks */,
 				56FD15D31998FFE100D51FB8 /* UIKit.framework in Frameworks */,
 				56FD15C91998FFE100D51FB8 /* QuartzCore.framework in Frameworks */,
-				56FD189E199C9EFC00D51FB8 /* GameKit.framework in Frameworks */,
 				56FD15D11998FFE100D51FB8 /* AVFoundation.framework in Frameworks */,
 				56FD15D71998FFE100D51FB8 /* CoreGraphics.framework in Frameworks */,
 				56FD15D91998FFE100D51FB8 /* CoreText.framework in Frameworks */,
@@ -732,7 +723,6 @@
 		56FD15C71998FFE100D51FB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				56FD189D199C9EFC00D51FB8 /* GameKit.framework */,
 				56FD15C81998FFE100D51FB8 /* QuartzCore.framework */,
 				56FD15CA1998FFE100D51FB8 /* OpenGLES.framework */,
 				56FD15CC1998FFE100D51FB8 /* OpenAL.framework */,
@@ -1578,10 +1568,6 @@
 			children = (
 				56FD1872199A229D00D51FB8 /* Utility.h */,
 				56FD1873199A229D00D51FB8 /* Utility.m */,
-				56FD189F199CA41000D51FB8 /* GCHelper.h */,
-				56FD18A0199CA41000D51FB8 /* GCHelper.m */,
-				56FD18AB199D083900D51FB8 /* AchivementHelper.h */,
-				56FD18AC199D083900D51FB8 /* AchivementHelper.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -1695,7 +1681,7 @@
 						DevelopmentTeam = 9CYMZ236SH;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -1815,7 +1801,6 @@
 				56FD178F1998FFE400D51FB8 /* IOSVersion.m in Sources */,
 				56FD16E31998FFE300D51FB8 /* CCTextureCache.m in Sources */,
 				56FD17121998FFE300D51FB8 /* CCDirectorMac.m in Sources */,
-				56FD18AD199D083900D51FB8 /* AchivementHelper.m in Sources */,
 				56FD16231998FFE200D51FB8 /* CCEffectBrightness.m in Sources */,
 				56FD17281998FFE300D51FB8 /* CCProfiling.m in Sources */,
 				56FD17321998FFE300D51FB8 /* CGPointExtension.m in Sources */,
@@ -1875,7 +1860,6 @@
 				56FD173C1998FFE300D51FB8 /* TGAlib.m in Sources */,
 				56FD17A81998FFE400D51FB8 /* CCControl.m in Sources */,
 				56FD1869199A0B7300D51FB8 /* GameScene.m in Sources */,
-				56FD18A1199CA41000D51FB8 /* GCHelper.m in Sources */,
 				56FD16601998FFE200D51FB8 /* CCAnimation.m in Sources */,
 				56FD168B1998FFE200D51FB8 /* CCMotionStreak.m in Sources */,
 				56FD16F01998FFE300D51FB8 /* CCTiledMapObjectGroup.m in Sources */,
@@ -2053,8 +2037,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ronan Turner (7AVWCS599F)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ronan Turner (7AVWCS599F)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2071,7 +2055,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "042CDDAA-F455-4F45-BDD7-AA802F8E1079";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2081,8 +2065,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Ronan Turner (7AVWCS599F)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ronan Turner (7AVWCS599F)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TileTumbler-v2/Supporting Files/Prefix.pch";
@@ -2098,7 +2082,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "042CDDAA-F455-4F45-BDD7-AA802F8E1079";
+				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

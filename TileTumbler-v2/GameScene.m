@@ -34,7 +34,7 @@
  */
 -(void) createBoard {
   
-  _board = [TBoard boardWithSize:(CGSize){.width=10,.height=14}];
+  _board = [TBoard boardWithSize:[self computeBoardSize]];
   
   [_board setContentSizeType:CCSizeTypeNormalized];
   [_board setContentSize:(CGSize){.width=1,.height=1}];
@@ -43,6 +43,24 @@
   [_board setPosition:ccp(0,0)];
   
   [self addChild:_board z:0];
+}
+
+/**
+ * Calculates the most appropriate board size based on the size of the device.
+ *
+ * @return Returns the size, in tiles of the board.
+ */
+-(CGSize) computeBoardSize {
+  
+  CGSize viewSize = [CCDirector sharedDirector].viewSize;
+  
+  /* The ratio of height to width */
+  float ratio = viewSize.height / viewSize.width;
+  
+  float tilesWide = 10;
+  float tilesHigh = tilesWide * ratio;
+  
+  return (CGSize){.width=(int)tilesWide, .height=(int)ceil(tilesHigh)};
 }
 
 /**

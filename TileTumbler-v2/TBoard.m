@@ -106,17 +106,17 @@
   [tile setAnchorPoint:ccp(0,0)];
   
   [tile setPositionType:CCPositionTypeNormalized];
-  [tile setContentSizeType:CCSizeTypeNormalized];
+  //[tile setContentSizeType:CCSizeTypeNormalized];
   
   CGSize size = (CGSize){.width=1/_boardSize.width,.height=1/_boardSize.height};
   CGPoint pos = (CGPoint){.x=point.x*size.width, .y=point.y*size.height};
   
   [tile setPosition:pos];
-  [tile setContentSize:size];
+  //[tile setContentSize:size];
   
   /* Scale our texture to fit content size */
-  [tile setScaleX:tile.contentSizeInPoints.width/tile.textureRect.size.width];
-  [tile setScaleY:tile.contentSizeInPoints.height/tile.textureRect.size.height];
+  [tile setScaleX:(size.width*self.contentSizeInPoints.width)/tile.textureRect.size.width];
+  [tile setScaleY:(size.height*self.contentSizeInPoints.height)/tile.textureRect.size.height];
   
   return tile;
 }

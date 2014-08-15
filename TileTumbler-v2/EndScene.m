@@ -22,8 +22,10 @@
   _score = score;
   _mode = mode;
   
-  /* Load previous high score from GameCenter / local storage */
+  /* Load previous high score from local storage */
   [self loadScore];
+  [self displayHighScore];
+  [self saveScore];
   
   [self createBackground];
   [self createTitle];
@@ -59,7 +61,7 @@
   [title setColor:[TColour colourOne].color];
   
   [title setPositionType:CCPositionTypeNormalized];
-  [title setPosition:(CGPoint){.x=0.5, .y=0.75}];
+  [title setPosition:(CGPoint){.x=0.5, .y=0.8}];
   
   [self addChild:title z:2];
 }
@@ -90,8 +92,8 @@
   [playLabel setPositionType:CCPositionTypeNormalized];
   [menuLabel setPositionType:CCPositionTypeNormalized];
   
-  [playLabel setPosition:(CGPoint){.x=0.5,.y=0.30}];
-  [menuLabel setPosition:(CGPoint){.x=0.5,.y=0.20}];
+  [playLabel setPosition:(CGPoint){.x=0.5,.y=0.25}];
+  [menuLabel setPosition:(CGPoint){.x=0.5,.y=0.15}];
   
   [self addChild:playLabel z:2];
   [self addChild:menuLabel z:2];
@@ -107,7 +109,7 @@
   if (_score > _highScore) _highScore = _score;
   
   NSString *scoreString = [Utility formatScore:_highScore];
-  scoreString = [NSString stringWithFormat:@"YOUR BEST: %@", scoreString];
+  scoreString = [NSString stringWithFormat:@"HIGHEST: %@", scoreString];
   
   CCLabelTTF *label = [CCLabelTTF labelWithAttributedString:[Utility uiString:scoreString withSize:21]];
   
@@ -149,33 +151,9 @@
       break;
   }
   
-  /* If we've authenticated the local player, use GC high scores */
-  if ([GCHelper sharedInstance].Authenticated) {
-    
-    /* Form a leaderboard request for only the local player */
-    GKLeaderboard *request = [[GKLeaderboard alloc] initWithPlayerIDs:@[[GKLocalPlayer localPlayer].playerID]];
-    
-    request.timeScope = GKLeaderboardTimeScopeAllTime;
-    request.identifier = leaderboardId;
-    request.range = NSMakeRange(1, 1);
-    [request loadScoresWithCompletionHandler:^(NSArray *scores, NSError *error) {
-      if (scores != nil) {
-        NSLog(@"Scores Loaded.");
-        
-        _highScore = (int)((GKScore *)scores[0]).value;
-        
-        [self displayHighScore];
-        if (_score > _highScore) {
-          [self saveScore];
-        }
-      }
-    }];
-  } else {
-    
-    /* Load the high score based on leaderboard id from local defaults, if not
-       present, high score will be 0. */
-    _highScore = (int)[[NSUserDefaults standardUserDefaults] integerForKey:leaderboardId];
-  }
+  /* Load the high score based on leaderboard id from local defaults, if not
+   present, high score will be 0. */
+  _highScore = (int)[[NSUserDefaults standardUserDefaults] integerForKey:leaderboardId];
 }
 
 /**
@@ -207,28 +185,9 @@
       leaderboardId = @"Timed.Tile.Total";
       break;
   }
-
-  /* Save to Game Center if authenticated */
-  if ([GCHelper sharedInstance].Authenticated) {
-    
-    GKScore *scoreReporter = [[GKScore alloc] initWithLeaderboardIdentifier: leaderboardId];
-    scoreReporter.value = _score;
-    scoreReporter.context = 0;
-    
-    NSArray *scores = @[scoreReporter];
-    
-    [GKScore reportScores:scores withCompletionHandler:^(NSError *error) {
-      NSLog(@"Scores Saved.");
-      
-      if (error) {
-        NSLog(@"[Error]: Reporting scores: %@", error);
-      }
-    }];
-  } else {
-    
-    /* Save the high score based on leaderboard id from local defaults */
-    [[NSUserDefaults standardUserDefaults] setInteger:_highScore forKey:leaderboardId];
-  }
+  
+  /* Save the high score based on leaderboard id from local defaults */
+  [[NSUserDefaults standardUserDefaults] setInteger:_highScore forKey:leaderboardId];
 }
 
 #pragma mark Touch Interaction
