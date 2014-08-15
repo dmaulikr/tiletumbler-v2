@@ -52,12 +52,12 @@
  */
 -(CGSize) computeBoardSize {
   
-  CGSize viewSize = [CCDirector sharedDirector].viewSize;
+  CGSize viewSize = [CCDirector sharedDirector].viewSizeInPixels;
   
   /* The ratio of height to width */
   float ratio = viewSize.height / viewSize.width;
   
-  float tilesWide = 10;
+  float tilesWide = 10 + ((int)viewSize.width % 320) / 32.0;
   float tilesHigh = tilesWide * ratio;
   
   return (CGSize){.width=(int)tilesWide, .height=(int)ceil(tilesHigh)};
