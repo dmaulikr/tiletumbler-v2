@@ -3,6 +3,8 @@
 #import "EndScene.h"
 #import "IntroScene.h"
 
+#import "Utility.h"
+
 @implementation GameScene
 
 #pragma mark Create & Initialisation
@@ -34,7 +36,7 @@
  */
 -(void) createBoard {
   
-  _board = [TBoard boardWithSize:[self computeBoardSize]];
+  _board = [TBoard boardWithSize:[Utility computeBoardSize]];
   
   [_board setContentSizeType:CCSizeTypeNormalized];
   [_board setContentSize:(CGSize){.width=1,.height=1}];
@@ -43,24 +45,6 @@
   [_board setPosition:ccp(0,0)];
   
   [self addChild:_board z:0];
-}
-
-/**
- * Calculates the most appropriate board size based on the size of the device.
- *
- * @return Returns the size, in tiles of the board.
- */
--(CGSize) computeBoardSize {
-  
-  CGSize viewSize = [CCDirector sharedDirector].viewSizeInPixels;
-  
-  /* The ratio of height to width */
-  float ratio = viewSize.height / viewSize.width;
-  
-  float tilesWide = 10 + ((int)viewSize.width % 320) / 32.0;
-  float tilesHigh = tilesWide * ratio;
-  
-  return (CGSize){.width=(int)tilesWide, .height=(int)ceil(tilesHigh)};
 }
 
 /**
@@ -234,7 +218,7 @@
  */
 -(void) initScoreChange:(int)scoreChange {
   
-  CCLabelTTF *scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"+%d", scoreChange] fontName:UI_FONT fontSize:UI_FONT_SIZE];
+  CCLabelTTF *scoreLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"+%d", scoreChange] fontName:UI_FONT fontSize:[Utility scaledFont:UI_FONT_SIZE]];
   scoreLabel.name = @"change";
   
   [scoreLabel setPosition:_lastTouch];

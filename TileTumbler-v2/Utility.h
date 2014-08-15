@@ -40,4 +40,26 @@
  */
 +(NSString*) formatScore:(int)value;
 
+/**
+ * Returns a scale value for sprites based on the device type.
+ */
++(float) spriteScale;
+
+/**
+ * Calculates that amount font sizes should be scaled to for the current
+ * device.
+ *
+ * @param size The font size that you wish to be scaled.
+ *
+ * @return Returns the size of the font that should be used w/ scale.
+ */
++(float) scaledFont:(float)size;
+
+/**
+ * Calculates the most appropriate board size based on the size of the device.
+ *
+ * @return Returns the size, in tiles of the board.
+ */
++(CGSize) computeBoardSize;
+
 @end

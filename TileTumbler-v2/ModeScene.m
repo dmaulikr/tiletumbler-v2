@@ -143,6 +143,9 @@
   [_leftButton setPosition:(CGPoint){.x=0.2, .y=0.75}];
   [_rightButton setPosition:(CGPoint){.x=0.8, .y=0.75}];
   
+  [_leftButton setScale:[Utility spriteScale]];
+  [_rightButton setScale:[Utility spriteScale]];
+  
   [_leftButton setTarget:self selector:@selector(buttonChosen:)];
   [_rightButton setTarget:self selector:@selector(buttonChosen:)];
   

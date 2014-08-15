@@ -25,6 +25,9 @@
   self = [super init];
   if (!self) return nil;
   
+  // Calculate scaled font size
+  _fontSize = [Utility scaledFont:UI_FONT_SIZE];
+  
   // Assign our size
   [self setContentSize:sizePoints];
   
@@ -79,7 +82,7 @@
   CGPoint anchor = (CGPoint){.x=0,.y=0.5};
   CGPoint pos = (CGPoint){.x=0.05,.y=0.5};
   
-  _score = [CCLabelTTF labelWithString:@"" fontName:UI_FONT fontSize:UI_FONT_SIZE];
+  _score = [CCLabelTTF labelWithString:@"" fontName:UI_FONT fontSize:_fontSize];
   
   [self addChild:_score];
   
@@ -99,7 +102,7 @@
   CGPoint anchor = (CGPoint){.x=1,.y=0.5};
   CGPoint pos = (CGPoint){.x=0.95,.y=0.5};
   
-  _info = [CCLabelTTF labelWithString:@"" fontName:UI_FONT fontSize:UI_FONT_SIZE];
+  _info = [CCLabelTTF labelWithString:@"" fontName:UI_FONT fontSize:_fontSize];
   
   [self addChild:_info];
   
@@ -118,7 +121,7 @@
   
   CGPoint pos = (CGPoint){.x=0.5,.y=0.5};
   
-  _pause = [CCButton buttonWithTitle:@"PAUSE" fontName:UI_FONT fontSize:UI_FONT_SIZE];
+  _pause = [CCButton buttonWithTitle:@"PAUSE" fontName:UI_FONT fontSize:_fontSize+2];
   
   [self addChild:_pause];
   
@@ -141,13 +144,13 @@
 
 -(void) updateScore:(int)value {
   
-  [_score setAttributedString:[Utility uiString:[Utility formatScore:value] withSize:UI_FONT_SIZE]];
+  [_score setAttributedString:[Utility uiString:[Utility formatScore:value] withSize:_fontSize]];
 }
 
 -(void) updateInfo:(int)value withTime:(BOOL)isTime {
   
   NSString *text = isTime ? [Utility formatTime:value] : [NSString stringWithFormat:@"%d", value];
-  [_info setAttributedString:[Utility uiString:text withSize:UI_FONT_SIZE]];
+  [_info setAttributedString:[Utility uiString:text withSize:_fontSize]];
 }
 
 #pragma mark String Functions

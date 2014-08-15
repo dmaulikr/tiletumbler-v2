@@ -162,6 +162,9 @@
   [musicToggle setPosition:(CGPoint){.x=0.9,.y=0.78}];
   [fxToggle setPosition:(CGPoint){.x=0.9,.y=0.68}];
   
+  [musicToggle setScale:[Utility spriteScale]];
+  [fxToggle setScale:[Utility spriteScale]];
+  
   __weak OptionLayer* weakSelf = self;
   [musicToggle setBlock:^(id sender) {
     
@@ -184,6 +187,8 @@
   
   /* Create the music slider first */
   musicSlider = [[CCSlider alloc] initWithBackground:sliderBackground andHandleImage:sliderTack];
+  
+  [musicSlider.handle setScale:[Utility spriteScale]];
   musicSlider.handle.hitAreaExpansion = 10;
   
   [self addChild:musicSlider z:2];
@@ -192,6 +197,9 @@
   
   [musicSlider setPositionType:CCPositionTypeNormalized];
   [musicSlider setPosition:(CGPoint){.x=0.5, .y=0.42}];
+  
+  [musicSlider setPreferredSizeType:CCSizeTypeNormalized];
+  [musicSlider setPreferredSize:(CGSize){.width=0.6, .height=0.01}];
   
   [musicSlider setSliderValue:pow([OALSimpleAudio sharedInstance].bgVolume, 1.0/4.0)];
   
@@ -215,11 +223,16 @@
   [volMinS setPosition:(CGPoint){.x=0.1, .y=0.42}];
   [volMaxS setPosition:(CGPoint){.x=0.9, .y=0.42}];
   
+  [volMinS setScale:[Utility spriteScale]];
+  [volMaxS setScale:[Utility spriteScale]];
+  
   [self addChild:volMinS z:2];
   [self addChild:volMaxS z:2];
   
   /* Fx Slider */
   fxSlider = [[CCSlider alloc] initWithBackground:sliderBackground andHandleImage:sliderTack];
+  
+  [fxSlider.handle setScale:[Utility spriteScale]];
   fxSlider.handle.hitAreaExpansion = 10;
   
   [self addChild:fxSlider z:2];
@@ -228,6 +241,9 @@
   
   [fxSlider setPositionType:CCPositionTypeNormalized];
   [fxSlider setPosition:(CGPoint){.x=0.5, .y=0.22}];
+  
+  [fxSlider setPreferredSizeType:CCSizeTypeNormalized];
+  [fxSlider setPreferredSize:(CGSize){.width=0.6, .height=0.01}];
   
   [fxSlider setSliderValue:pow([OALSimpleAudio sharedInstance].effectsVolume, 1.0/4.0)];
   
@@ -245,6 +261,9 @@
   
   [volMinS setPositionType:CCPositionTypeNormalized];
   [volMaxS setPositionType:CCPositionTypeNormalized];
+
+  [volMinS setScale:[Utility spriteScale]];
+  [volMaxS setScale:[Utility spriteScale]];
   
   [volMinS setPosition:(CGPoint){.x=0.1, .y=0.22}];
   [volMaxS setPosition:(CGPoint){.x=0.9, .y=0.22}];

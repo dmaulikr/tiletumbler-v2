@@ -2,6 +2,8 @@
 #import "TileDropLayer.h"
 #import "TTile.h"
 
+#import "Utility.h"
+
 @implementation TileDropLayer
 
 +(TileDropLayer*) layerWithTime:(float)spawn minX:(float)minX maxX:(float)maxX shouldFlip:(BOOL)flip {
@@ -46,8 +48,8 @@
   
   [tile setContentSizeType:CCSizeTypeNormalized];
   
-  // XXX: Access board size from elsewhere?
-  CGSize size = (CGSize){.width=0.1,.height=1.0/14.0};
+  CGSize _board = [Utility computeBoardSize];
+  CGSize size = (CGSize){.width=1.0/_board.width,.height=1.0/_board.height};
   [tile setContentSize:size];
   
   [self addChild:tile];

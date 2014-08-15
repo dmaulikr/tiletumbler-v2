@@ -13,6 +13,8 @@
  */
 @interface GameHeader : CCNode {
   
+  float _fontSize;
+  
   CCLabelTTF *_score;
   
   CCLabelTTF *_info;
