@@ -254,10 +254,10 @@
 		56FD15D81998FFE100D51FB8 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		56FD15DA1998FFE100D51FB8 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		56FD15DE1998FFE100D51FB8 /* libObjectiveChipmunk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libObjectiveChipmunk.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		56FD15E41998FFE100D51FB8 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
-		56FD15E61998FFE100D51FB8 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
-		56FD15E81998FFE100D51FB8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Default-568h@2x.png"; sourceTree = "<group>"; };
-		56FD15EA1998FFE100D51FB8 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "Resources/Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		56FD15E41998FFE100D51FB8 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = "Resources/Splash Images/Default.png"; sourceTree = "<group>"; };
+		56FD15E61998FFE100D51FB8 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Splash Images/Default@2x.png"; sourceTree = "<group>"; };
+		56FD15E81998FFE100D51FB8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Splash Images/Default-568h@2x.png"; sourceTree = "<group>"; };
+		56FD15EA1998FFE100D51FB8 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "Resources/Splash Images/Default-Landscape~ipad.png"; sourceTree = "<group>"; };
 		56FD15ED1998FFE100D51FB8 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icons/Icon.png; sourceTree = "<group>"; };
 		56FD15EF1998FFE100D51FB8 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Resources/Icons/Icon@2x.png"; sourceTree = "<group>"; };
 		56FD15F11998FFE100D51FB8 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "Resources/Icons/Icon-72.png"; sourceTree = "<group>"; };
@@ -640,8 +640,8 @@
 		56FD18451998FFE400D51FB8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
 		56FD18481998FFE400D51FB8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		56FD18491998FFE500D51FB8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
-		56FD184E1998FFE500D51FB8 /* IntroScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntroScene.h; path = Classes/IntroScene.h; sourceTree = "<group>"; };
-		56FD184F1998FFE500D51FB8 /* IntroScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IntroScene.m; path = Classes/IntroScene.m; sourceTree = "<group>"; };
+		56FD184E1998FFE500D51FB8 /* IntroScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroScene.h; sourceTree = "<group>"; };
+		56FD184F1998FFE500D51FB8 /* IntroScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroScene.m; sourceTree = "<group>"; };
 		56FD185B199900CD00D51FB8 /* TBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBoard.h; sourceTree = "<group>"; };
 		56FD185C199900CD00D51FB8 /* TBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBoard.m; sourceTree = "<group>"; };
 		56FD185E1999015800D51FB8 /* TTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTile.h; sourceTree = "<group>"; };
@@ -702,6 +702,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		56502374199F4B4E00921EED /* Splash Images */ = {
+			isa = PBXGroup;
+			children = (
+				56FD15E41998FFE100D51FB8 /* Default.png */,
+				56FD15E61998FFE100D51FB8 /* Default@2x.png */,
+				56FD15E81998FFE100D51FB8 /* Default-568h@2x.png */,
+				56FD15EA1998FFE100D51FB8 /* Default-Landscape~ipad.png */,
+			);
+			name = "Splash Images";
+			sourceTree = "<group>";
+		};
 		56FD15BC1998FFE100D51FB8 = {
 			isa = PBXGroup;
 			children = (
@@ -752,17 +763,14 @@
 			isa = PBXGroup;
 			children = (
 				56FD1898199B719800D51FB8 /* Audio */,
-				56FD1878199A4FF000D51FB8 /* UI */,
 				56FD186E199A166700D51FB8 /* Fonts */,
+				56FD15EC1998FFE100D51FB8 /* Icons */,
 				56FD1864199909EA00D51FB8 /* Nodes */,
-				56FD15E41998FFE100D51FB8 /* Default.png */,
-				56FD15E61998FFE100D51FB8 /* Default@2x.png */,
-				56FD15E81998FFE100D51FB8 /* Default-568h@2x.png */,
-				56FD15EA1998FFE100D51FB8 /* Default-Landscape~ipad.png */,
+				56502374199F4B4E00921EED /* Splash Images */,
+				56FD1878199A4FF000D51FB8 /* UI */,
 				56FD16071998FFE100D51FB8 /* Info.plist */,
 				56FD16081998FFE100D51FB8 /* iTunesArtwork */,
 				56FD160A1998FFE200D51FB8 /* iTunesArtwork@2x */,
-				56FD15EC1998FFE100D51FB8 /* Icons */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1519,6 +1527,7 @@
 				56FD188E199ACDF400D51FB8 /* ModeScene.m */,
 			);
 			name = Scenes;
+			path = Classes/Scenes;
 			sourceTree = "<group>";
 		};
 		56FD185A199900BB00D51FB8 /* Nodes */ = {
@@ -1532,6 +1541,7 @@
 				56FD18621999042300D51FB8 /* TColour.m */,
 			);
 			name = Nodes;
+			path = Classes/Nodes;
 			sourceTree = "<group>";
 		};
 		56FD1864199909EA00D51FB8 /* Nodes */ = {
@@ -1553,6 +1563,7 @@
 				56FD1896199B5E1100D51FB8 /* TileDropLayer.m */,
 			);
 			name = Layers;
+			path = Classes/Layers;
 			sourceTree = "<group>";
 		};
 		56FD186E199A166700D51FB8 /* Fonts */ = {
@@ -1570,6 +1581,7 @@
 				56FD1873199A229D00D51FB8 /* Utility.m */,
 			);
 			name = Utility;
+			path = Classes/Utility;
 			sourceTree = "<group>";
 		};
 		56FD1878199A4FF000D51FB8 /* UI */ = {
