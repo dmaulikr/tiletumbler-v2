@@ -13,6 +13,7 @@
  */
 @interface GameHeader : CCNode {
   
+  /* Calculated on init - the font-size multiplied by scale value */
   float _fontSize;
   
   CCLabelTTF *_score;

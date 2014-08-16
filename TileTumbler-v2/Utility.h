@@ -7,6 +7,8 @@
  */
 @interface Utility : NSObject
 
+#pragma mark String Formatting
+
 /**
  * This method returns an NSAttributedString formatted to use our 
  * specific UI font, the given size and appropriate kerning. Should
@@ -39,6 +41,8 @@
  * @return The formatted string
  */
 +(NSString*) formatScore:(int)value;
+
+#pragma mark Display Methods
 
 /**
  * Returns a scale value for sprites based on the device type.

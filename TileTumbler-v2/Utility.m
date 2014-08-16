@@ -58,6 +58,13 @@
   return [numberFormatter stringFromNumber:[NSNumber numberWithInt:value]];
 }
 
+/**
+ * Sprite scale calculates a scale value based on the calculated
+ * board width. The scale is 1.X where X is the number of extra
+ * tiles in the board-width.
+ *
+ * @return Returns the value of the sprite scale.
+ */
 +(float) spriteScale {
   
   CGSize _board = [Utility computeBoardSize];
@@ -67,16 +74,20 @@
   return scale;
 }
 
+/* Simply scales the font size by the sprite scale value */
 +(float) scaledFont:(float)size {
   
-  /* Calculate based on difference of board width */
-  CGSize _board = [Utility computeBoardSize];
-  
-  float scale = 1 + ((_board.width - 10) / 10.0);
-  
-  return scale * size;
+  return [self spriteScale] * size;
 }
 
+/**
+ * Board size is calculated using a base value of 10 tiles wide, then
+ * identifying the extra space we have and deciding how many tiles
+ * to place.
+ *
+ * Height is determined as the same width/height ratio as the device
+ * itself.
+ */
 +(CGSize) computeBoardSize {
   
   CGSize viewSize = [CCDirector sharedDirector].viewSizeInPixels;
