@@ -135,6 +135,34 @@
   }];
 }
 
+-(void) createFinishButton {
+ 
+  CGPoint anchor = (CGPoint){.x=1, .y=0.5};
+  CGPoint pos = (CGPoint){.x=0.95,.y=0.5};
+  
+  _pause = [CCButton buttonWithTitle:@"END" fontName:UI_FONT fontSize:_fontSize+2];
+  
+  [self addChild:_pause];
+  
+  /* Assign position and callback */
+  [_pause setAnchorPoint:anchor];
+  [_pause setPositionType:CCPositionTypeNormalized];
+  [_pause setPosition:pos];
+  
+  __weak GameHeader* weakSelf = self;
+  [_pause setBlock:^(id sender) {
+    weakSelf.onFinish();
+  }];
+}
+
+#pragma mark Buttons
+
+-(void) displayFinish {
+  
+  [self createFinishButton];
+  [self hideInfo];
+}
+
 #pragma mark Label Changes
 
 -(void) hideInfo {

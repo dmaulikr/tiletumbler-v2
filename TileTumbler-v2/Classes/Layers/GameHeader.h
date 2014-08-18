@@ -38,6 +38,16 @@
  */
 +(GameHeader *) headerWithSize:(CGSize)sizePoints;
 
+#pragma mark Button Changes
+
+/**
+ * Call this method to display a button labelled 'finish' where the info-label should be.
+ * This is for Zen mode as there is no info label present.
+ *
+ * @note Calling this method auto-hides the info too
+ */
+-(void) displayFinish;
+
 #pragma mark Label Changes
 
 /**
@@ -66,5 +76,8 @@
 
 /* This block is called whenever pause is clicked */
 @property (nonatomic,copy) void (^onPause)();
+
+/* This block is called if the finish button is clicked */
+@property (nonatomic,copy) void (^onFinish)();
 
 @end

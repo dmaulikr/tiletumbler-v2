@@ -65,12 +65,16 @@
   } else if (_mode == kModeTouch) {
     [_header updateInfo:_touchLimit withTime:NO];
   } else {
-    [_header hideInfo];
+    [_header displayFinish];
   }
   
   __weak GameScene* weakSelf = self;
   _header.onPause = ^() {
     [weakSelf pauseChosen];
+  };
+  _header.onFinish = ^() {
+    /* End the game */
+    [weakSelf finishChosen];
   };
   
   [_header setPositionType:CCPositionTypeNormalized];
@@ -131,6 +135,20 @@
 #pragma mark Game State
 
 /**
+ * Handles responding when finish pressed on UI Header
+ */
+-(void) finishChosen {
+  
+  _gameEnded = YES;
+  
+  /* If we don't have any score-change labels, transition immediately, otherwise score-change
+     label will do so when finished. */
+  if (![self getChildByName:@"change" recursively:NO]) {
+    [self transitionToEnd];
+  }
+}
+
+/**
  * Handles responding to the pause button being pressed
  */
 -(void) pauseChosen {
@@ -161,23 +179,13 @@
 }
 
 /**
- * Handles displaying the game over interface when the time runs out.
+ * Transitions from this scene to the EndScene, used when the game has been ended.
  */
--(void) timerEnded {
+-(void) transitionToEnd {
   
-  /* Transition to IntroScene */
   CCTransition *trans = [CCTransition transitionCrossFadeWithDuration:0.8];
   
   [[CCDirector sharedDirector] replaceScene:[EndScene sceneWithScore:_score forMode:_mode] withTransition:trans];
-}
-
-/**
- * Handles displaying the game over interface when the touch limit runs out.
- */
--(void) touchLimitReached {
-  
-  // Currently performs same as this method
-  [self timerEnded];
 }
 
 /**
@@ -202,7 +210,7 @@
          score change will do it when it finishes. */
       if (![self getChildByName:@"change" recursively:NO]) {
         
-        [self timerEnded];
+        [self transitionToEnd];
       }
     }
     
@@ -234,11 +242,7 @@
     [self removeChild:scoreLabel];
     
     if (_gameEnded && ![self getChildByName:@"change" recursively:NO]) {
-      if (_mode == kModeTouch) {
-        [self touchLimitReached];
-      } else if (_mode == kModeTimed) {
-        [self timerEnded];
-      }
+      [self transitionToEnd];
     }
   }];
   
