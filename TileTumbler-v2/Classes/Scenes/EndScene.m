@@ -24,8 +24,8 @@
   
   /* Load previous high score from local storage */
   [self loadScore];
-  [self displayHighScore];
   [self saveScore];
+  [self displayHighScore];
   
   [self createBackground];
   [self createTitle];
@@ -153,7 +153,7 @@
   
   /* Load the high score based on leaderboard id from local defaults, if not
    present, high score will be 0. */
-  _highScore = (int)[[NSUserDefaults standardUserDefaults] integerForKey:leaderboardId];
+  _highScore = [[NSUserDefaults standardUserDefaults] integerForKey:leaderboardId];
 }
 
 /**
@@ -163,7 +163,7 @@
 -(void) saveScore {
   
   /* Only save a new high score - don't spam the leaderboards. */
-  if (_score <= _highScore) return;
+  if (_score < _highScore) return;
   
   /* Get the leaderboard id */
   NSString *leaderboardId;
@@ -187,7 +187,8 @@
   }
   
   /* Save the high score based on leaderboard id from local defaults */
-  [[NSUserDefaults standardUserDefaults] setInteger:_highScore forKey:leaderboardId];
+  [[NSUserDefaults standardUserDefaults] setInteger:_score forKey:leaderboardId];
+  [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 #pragma mark Touch Interaction

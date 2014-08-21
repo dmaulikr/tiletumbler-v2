@@ -25,8 +25,6 @@
   
   /* Spawns random tiles as a background */
   TileDropLayer *_dropLayer;
-  
-  float _timeTillTile;
 }
 
 + (IntroScene *)scene;
