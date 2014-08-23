@@ -48,6 +48,28 @@
 	return YES;
 }
 
+#ifdef ANDROID
+- (void)buttonUpWithEvent:(UIEvent *)event
+{
+  switch (event.buttonCode)
+  {
+    case UIEventButtonCodeBack:
+      exit(0);
+      break;
+    case UIEventButtonCodeMenu:
+      exit(0);
+      break;
+    default:
+      break;
+  }
+}
+
+- (BOOL)canBecomeFirstResponder
+{
+  return YES;
+}
+#endif
+
 -(CCScene *)startScene
 {
 	return [IntroScene scene];

@@ -27,6 +27,11 @@
   
   self.userInteractionEnabled = YES;
   
+#ifdef ANDROID
+  UISystemInterfaceVisibilityStyle style = UISystemInterfaceVisibilityStyleLowProfile;
+  [UIApplication sharedApplication].systemInterfaceVisibilityStyle = style;
+#endif
+  
   return self;
 }
 
@@ -153,6 +158,11 @@
  */
 -(void) pauseChosen {
   
+#ifdef ANDROID
+  UISystemInterfaceVisibilityStyle style = UISystemInterfaceVisibilityStyleDefault;
+  [UIApplication sharedApplication].systemInterfaceVisibilityStyle = style;
+#endif
+  
   if (_options == nil) {
     
     _options = [OptionLayer layerWithMenu:YES];
@@ -172,6 +182,11 @@
 }
 
 -(void) optionsReturn {
+  
+#ifdef ANDROID
+  UISystemInterfaceVisibilityStyle style = UISystemInterfaceVisibilityStyleLowProfile;
+  [UIApplication sharedApplication].systemInterfaceVisibilityStyle = style;
+#endif
   
   /* Hide options away again and resume */
   [_options setVisible:NO];
