@@ -54,17 +54,8 @@
   CGPoint pointFrom =  (CGPoint){.x=0.1 * size.width, .y=0.6 * size.height};
   CGPoint pointTo = (CGPoint){.x=0.9 * size.width, .y=0.6 * size.height};
   
-  CCSprite *separator = [CCSprite spriteWithImageNamed:@"Separator.png"];
-  
-  [separator setPositionType:CCPositionTypeNormalized];
-  [separator setPosition:(CGPoint){.x=0.1, .y=0.6}];
-  
-  [separator setAnchorPoint:(CGPoint){.x=0, .y=0.5}];
-  
-  [separator setScaleX:(pointTo.x - pointFrom.x) / separator.contentSize.width];
-  
   [self addChild:background z:0];
-  [self addChild:separator z:0];
+  [self addChild:[Utility createSeparatorFrom:pointFrom To:pointTo] z:0];
 }
 
 -(void) createTitle {

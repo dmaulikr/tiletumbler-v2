@@ -66,4 +66,9 @@
  */
 +(CGSize) computeBoardSize;
 
+/**
+ * Creates a sprite representing a white line of size-1 from the given point to the given endpoint.
+ */
++(CCSprite*) createSeparatorFrom:(CGPoint)from To:(CGPoint)to;
+
 @end

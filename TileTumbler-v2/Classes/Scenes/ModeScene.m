@@ -41,29 +41,29 @@
 
 -(void) initBackground {
   
-  CCDrawNode *draw = [CCDrawNode node];
   CGSize size = [CCDirector sharedDirector].viewSize;
   
-  CGPoint *vertices = malloc(sizeof(CGPoint)*4);
+  CCSprite *_background = [CCSprite spriteWithImageNamed:@"Bg.png"];
   
-  vertices[0] = (CGPoint){.x=0, .y=0};
-  vertices[1] = (CGPoint){.x=0, .y=size.height};
-  vertices[2] = (CGPoint){.x=size.width, .y=size.height};
-  vertices[3] = (CGPoint){.x=size.width, .y=0};
+  [_background setScaleX:size.width / _background.contentSize.width];
+  [_background setScaleY:size.height / _background.contentSize.height];
   
-  [draw drawPolyWithVerts:vertices count:4 fillColor:[CCColor colorWithCcColor3b:ccBLACK] borderWidth:1 borderColor:[CCColor colorWithCcColor3b:ccWHITE]];
+  [_background setPositionType:CCPositionTypeNormalized];
+  [_background setPosition:(CGPoint){.x=0.5, .y=0.5}];
   
   CGPoint from = (CGPoint){.x=0.1*size.width, .y=0.66*size.height};
   CGPoint to = (CGPoint){.x=0.9*size.width, .y=0.66*size.height};
   
-  [draw drawSegmentFrom:from to:to radius:1 color:[CCColor colorWithCcColor3b:ccWHITE]];
+  CCSprite *_separator1 = [Utility createSeparatorFrom:from To:to];
   
   from = (CGPoint){.x=0.1*size.width, .y=0.2*size.height};
   to = (CGPoint){.x=0.9*size.width, .y=0.2*size.height};
   
-  [draw drawSegmentFrom:from to:to radius:1 color:[CCColor colorWithCcColor3b:ccWHITE]];
+  CCSprite *_separator2 = [Utility createSeparatorFrom:from To:to];
   
-  [self addChild:draw z:0];
+  [self addChild:_background z:0];
+  [self addChild:_separator1 z:0];
+  [self addChild:_separator2 z:0];
 }
 
 -(void) initLabels {

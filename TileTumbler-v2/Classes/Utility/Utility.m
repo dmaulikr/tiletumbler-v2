@@ -101,4 +101,17 @@
   return (CGSize){.width=(int)tilesWide, .height=(int)ceil(tilesHigh)};
 }
 
++(CCSprite*) createSeparatorFrom:(CGPoint)from To:(CGPoint)to {
+  
+  CCSprite *separator = [CCSprite spriteWithImageNamed:@"Separator.png"];
+  
+  [separator setPosition:(CGPoint){.x=from.x, .y=from.y}];
+  
+  [separator setAnchorPoint:(CGPoint){.x=0, .y=0.5}];
+  
+  [separator setScaleX:(to.x - from.x) / separator.contentSize.width];
+  
+  return separator;
+}
+
 @end
