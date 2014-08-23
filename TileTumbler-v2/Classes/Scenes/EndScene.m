@@ -39,17 +39,15 @@
 
 -(void) createBackground {
   
-  CGSize size = self.contentSize;
-  CCDrawNode *background = [CCDrawNode node];
+  CGSize size = [CCDirector sharedDirector].viewSize;
   
-  CGPoint *vertices = malloc(sizeof(CGPoint)*4);
+  CCSprite *background = [CCSprite spriteWithImageNamed:@"Bg.png"];
   
-  vertices[0] = (CGPoint){.x=0,.y=0};
-  vertices[1] = (CGPoint){.x=0,.y=size.height};
-  vertices[2] = (CGPoint){.x=size.width,.y=size.height};
-  vertices[3] = (CGPoint){.x=size.width,.y=0};
+  [background setScaleX:size.width / background.contentSize.width];
+  [background setScaleY:size.height / background.contentSize.height];
   
-  [background drawPolyWithVerts:vertices count:4 fillColor:[CCColor colorWithCcColor3b:ccBLACK] borderWidth:1 borderColor:[CCColor colorWithCcColor3b:ccWHITE]];
+  [background setPositionType:CCPositionTypeNormalized];
+  [background setPosition:(CGPoint){.x=0.5, .y=0.5}];
   
   [self addChild:background z:0];
 }

@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		562B40D419A8DD28003FE1A5 /* TestScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 562B40D319A8DD28003FE1A5 /* TestScene.m */; };
 		562B40E419A8EB38003FE1A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 562B40E319A8EB38003FE1A5 /* UIKit.framework */; };
+		562B40E719A8EE3B003FE1A5 /* Bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 562B40E519A8EE3B003FE1A5 /* Bg.png */; };
+		562B40E819A8EE3B003FE1A5 /* Separator.png in Resources */ = {isa = PBXBuildFile; fileRef = 562B40E619A8EE3B003FE1A5 /* Separator.png */; };
 		56E0625B19A093F4005EF7B0 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56E0625A19A093F4005EF7B0 /* Media.xcassets */; };
 		56FD15C91998FFE100D51FB8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FD15C81998FFE100D51FB8 /* QuartzCore.framework */; };
 		56FD15CB1998FFE100D51FB8 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FD15CA1998FFE100D51FB8 /* OpenGLES.framework */; };
@@ -244,9 +245,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		562B40D219A8DD28003FE1A5 /* TestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScene.h; sourceTree = "<group>"; };
-		562B40D319A8DD28003FE1A5 /* TestScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestScene.m; sourceTree = "<group>"; };
 		562B40E319A8EB38003FE1A5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		562B40E519A8EE3B003FE1A5 /* Bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bg.png; path = Resources/UI/Bg.png; sourceTree = "<group>"; };
+		562B40E619A8EE3B003FE1A5 /* Separator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Separator.png; path = Resources/UI/Separator.png; sourceTree = "<group>"; };
 		56E0625A19A093F4005EF7B0 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = Resources/Media.xcassets; sourceTree = "<group>"; };
 		56FD15C51998FFE100D51FB8 /* TileTumbler-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TileTumbler-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FD15C81998FFE100D51FB8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -767,6 +768,8 @@
 		56FD15E31998FFE100D51FB8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				562B40E519A8EE3B003FE1A5 /* Bg.png */,
+				562B40E619A8EE3B003FE1A5 /* Separator.png */,
 				56FD1898199B719800D51FB8 /* Audio */,
 				56FD186E199A166700D51FB8 /* Fonts */,
 				56FD15EC1998FFE100D51FB8 /* Icons */,
@@ -1531,8 +1534,6 @@
 				56FD184F1998FFE500D51FB8 /* IntroScene.m */,
 				56FD188D199ACDF400D51FB8 /* ModeScene.h */,
 				56FD188E199ACDF400D51FB8 /* ModeScene.m */,
-				562B40D219A8DD28003FE1A5 /* TestScene.h */,
-				562B40D319A8DD28003FE1A5 /* TestScene.m */,
 			);
 			name = Scenes;
 			path = Classes/Scenes;
@@ -1736,10 +1737,12 @@
 				56FD189B199B71A000D51FB8 /* bg.mp3 in Resources */,
 				56FD1893199B4D6E00D51FB8 /* ArrowLeft.png in Resources */,
 				56FD15FA1998FFE100D51FB8 /* Icon-120.png in Resources */,
+				562B40E819A8EE3B003FE1A5 /* Separator.png in Resources */,
 				56FD18A9199CB69000D51FB8 /* Trophy.png in Resources */,
 				56FD187B199A4FFA00D51FB8 /* SliderBg.png in Resources */,
 				56FD15F01998FFE100D51FB8 /* Icon@2x.png in Resources */,
 				56FD16021998FFE100D51FB8 /* Icon-Small@2x.png in Resources */,
+				562B40E719A8EE3B003FE1A5 /* Bg.png in Resources */,
 				56FD15F41998FFE100D51FB8 /* Icon-72@2x.png in Resources */,
 				56FD15E51998FFE100D51FB8 /* Default.png in Resources */,
 				56FD18A7199CB69000D51FB8 /* Gamepad.png in Resources */,
@@ -1820,7 +1823,6 @@
 				56FD169E1998FFE200D51FB8 /* CCParticleExamples.m in Sources */,
 				56FD169B1998FFE200D51FB8 /* CCParticleBatchNode.m in Sources */,
 				56FD178F1998FFE400D51FB8 /* IOSVersion.m in Sources */,
-				562B40D419A8DD28003FE1A5 /* TestScene.m in Sources */,
 				56FD16E31998FFE300D51FB8 /* CCTextureCache.m in Sources */,
 				56FD17121998FFE300D51FB8 /* CCDirectorMac.m in Sources */,
 				56FD16231998FFE200D51FB8 /* CCEffectBrightness.m in Sources */,

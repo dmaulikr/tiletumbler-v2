@@ -39,17 +39,13 @@
   
   CGSize size = [CCDirector sharedDirector].viewSize;
   
-  _background = [CCDrawNode node];
+  _background = [CCSprite spriteWithImageNamed:@"Bg.png"];
   
-  /* Draw fill */
-  CGPoint *verts = malloc(sizeof(CGPoint)*4);
+  [_background setScaleX:size.width / _background.contentSize.width];
+  [_background setScaleY:size.height / _background.contentSize.height];
   
-  verts[0] = ccp(0,0);
-  verts[1] = ccp(0,size.height);
-  verts[2] = ccp(size.width,size.height);
-  verts[3] = ccp(size.width,0);
-  
-  [_background drawPolyWithVerts:verts count:4 fillColor:[CCColor colorWithCcColor3b:ccBLACK] borderWidth:1 borderColor:[CCColor colorWithCcColor3b:ccWHITE]];
+  [_background setPositionType:CCPositionTypeNormalized];
+  [_background setPosition:(CGPoint){.x=0.5, .y=0.5}];
   
   [self addChild:_background z:0];
 }

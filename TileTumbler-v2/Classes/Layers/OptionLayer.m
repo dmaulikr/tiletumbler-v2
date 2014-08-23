@@ -42,24 +42,29 @@
 -(void) createBackground {
   
   CGSize size = self.contentSize;
-  CCDrawNode *background = [CCDrawNode node];
+  CCSprite *background = [CCSprite spriteWithImageNamed:@"Bg.png"];
   
-  CGPoint *vertices = malloc(sizeof(CGPoint)*4);
+  [background setScaleX:size.width / background.contentSize.width];
+  [background setScaleY:size.height / background.contentSize.height];
   
-  vertices[0] = (CGPoint){.x=0,.y=0};
-  vertices[1] = (CGPoint){.x=0,.y=size.height};
-  vertices[2] = (CGPoint){.x=size.width,.y=size.height};
-  vertices[3] = (CGPoint){.x=size.width,.y=0};
-  
-  [background drawPolyWithVerts:vertices count:4 fillColor:[CCColor colorWithCcColor3b:ccBLACK] borderWidth:0 borderColor:[CCColor clearColor]];
+  [background setPositionType:CCPositionTypeNormalized];
+  [background setPosition:(CGPoint){.x=0.5, .y=0.5}];
   
   /* draw separator line */
   CGPoint pointFrom =  (CGPoint){.x=0.1 * size.width, .y=0.6 * size.height};
   CGPoint pointTo = (CGPoint){.x=0.9 * size.width, .y=0.6 * size.height};
   
-  [background drawSegmentFrom:pointFrom to:pointTo radius:1 color:[CCColor colorWithCcColor3b:ccWHITE]];
+  CCSprite *separator = [CCSprite spriteWithImageNamed:@"Separator.png"];
+  
+  [separator setPositionType:CCPositionTypeNormalized];
+  [separator setPosition:(CGPoint){.x=0.1, .y=0.6}];
+  
+  [separator setAnchorPoint:(CGPoint){.x=0, .y=0.5}];
+  
+  [separator setScaleX:(pointTo.x - pointFrom.x) / separator.contentSize.width];
   
   [self addChild:background z:0];
+  [self addChild:separator z:0];
 }
 
 -(void) createTitle {

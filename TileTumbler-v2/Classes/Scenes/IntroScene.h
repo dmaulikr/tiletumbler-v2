@@ -13,7 +13,7 @@
 
 @interface IntroScene : CCScene {
   
-  CCDrawNode *_background;
+  CCSprite *_background;
   
   CCLabelTTF *_titleText1;
   CCLabelTTF *_titleText2;
