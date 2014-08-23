@@ -2,10 +2,17 @@
 #import "AppDelegate.h"
 #import "IntroScene.h"
 
+#import <UIKit/UIKit.h>
+
 @implementation AppDelegate
 
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  
+#ifdef ANDROID
+  [UIScreen mainScreen].currentMode = [UIScreenMode emulatedMode:UIScreenIPhone3GEmulationMode];
+#endif
+  
   /* Assign defaults if not exist */
   if ([[NSUserDefaults standardUserDefaults] objectForKey:@"Background-Volume"] == nil) {
     [[NSUserDefaults standardUserDefaults] setFloat:0.5 forKey:@"Background-Volume"];

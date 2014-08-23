@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		562B40D419A8DD28003FE1A5 /* TestScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 562B40D319A8DD28003FE1A5 /* TestScene.m */; };
+		562B40E419A8EB38003FE1A5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 562B40E319A8EB38003FE1A5 /* UIKit.framework */; };
 		56E0625B19A093F4005EF7B0 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56E0625A19A093F4005EF7B0 /* Media.xcassets */; };
 		56FD15C91998FFE100D51FB8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FD15C81998FFE100D51FB8 /* QuartzCore.framework */; };
 		56FD15CB1998FFE100D51FB8 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FD15CA1998FFE100D51FB8 /* OpenGLES.framework */; };
 		56FD15CD1998FFE100D51FB8 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FD15CC1998FFE100D51FB8 /* OpenAL.framework */; };
 		56FD15CF1998FFE100D51FB8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FD15CE1998FFE100D51FB8 /* AudioToolbox.framework */; };
 		56FD15D11998FFE100D51FB8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FD15D01998FFE100D51FB8 /* AVFoundation.framework */; };
-		56FD15D31998FFE100D51FB8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FD15D21998FFE100D51FB8 /* UIKit.framework */; };
 		56FD15D51998FFE100D51FB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FD15D41998FFE100D51FB8 /* Foundation.framework */; };
 		56FD15D71998FFE100D51FB8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FD15D61998FFE100D51FB8 /* CoreGraphics.framework */; };
 		56FD15D91998FFE100D51FB8 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FD15D81998FFE100D51FB8 /* CoreText.framework */; };
@@ -246,6 +246,7 @@
 /* Begin PBXFileReference section */
 		562B40D219A8DD28003FE1A5 /* TestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScene.h; sourceTree = "<group>"; };
 		562B40D319A8DD28003FE1A5 /* TestScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestScene.m; sourceTree = "<group>"; };
+		562B40E319A8EB38003FE1A5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		56E0625A19A093F4005EF7B0 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = Resources/Media.xcassets; sourceTree = "<group>"; };
 		56FD15C51998FFE100D51FB8 /* TileTumbler-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TileTumbler-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FD15C81998FFE100D51FB8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -253,7 +254,6 @@
 		56FD15CC1998FFE100D51FB8 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		56FD15CE1998FFE100D51FB8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		56FD15D01998FFE100D51FB8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		56FD15D21998FFE100D51FB8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		56FD15D41998FFE100D51FB8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		56FD15D61998FFE100D51FB8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		56FD15D81998FFE100D51FB8 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -690,8 +690,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				562B40E419A8EB38003FE1A5 /* UIKit.framework in Frameworks */,
 				56FD15CD1998FFE100D51FB8 /* OpenAL.framework in Frameworks */,
-				56FD15D31998FFE100D51FB8 /* UIKit.framework in Frameworks */,
 				56FD15C91998FFE100D51FB8 /* QuartzCore.framework in Frameworks */,
 				56FD15D11998FFE100D51FB8 /* AVFoundation.framework in Frameworks */,
 				56FD15D71998FFE100D51FB8 /* CoreGraphics.framework in Frameworks */,
@@ -739,12 +739,12 @@
 		56FD15C71998FFE100D51FB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				562B40E319A8EB38003FE1A5 /* UIKit.framework */,
 				56FD15C81998FFE100D51FB8 /* QuartzCore.framework */,
 				56FD15CA1998FFE100D51FB8 /* OpenGLES.framework */,
 				56FD15CC1998FFE100D51FB8 /* OpenAL.framework */,
 				56FD15CE1998FFE100D51FB8 /* AudioToolbox.framework */,
 				56FD15D01998FFE100D51FB8 /* AVFoundation.framework */,
-				56FD15D21998FFE100D51FB8 /* UIKit.framework */,
 				56FD15D41998FFE100D51FB8 /* Foundation.framework */,
 				56FD15D61998FFE100D51FB8 /* CoreGraphics.framework */,
 				56FD15D81998FFE100D51FB8 /* CoreText.framework */,
@@ -2064,6 +2064,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TileTumbler-v2/Supporting Files/Prefix.pch";
@@ -2094,6 +2095,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TileTumbler-v2/Supporting Files/Prefix.pch";
 				HEADER_SEARCH_PATHS = (
