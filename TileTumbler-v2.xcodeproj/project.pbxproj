@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		562B40D419A8DD28003FE1A5 /* TestScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 562B40D319A8DD28003FE1A5 /* TestScene.m */; };
 		56E0625B19A093F4005EF7B0 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56E0625A19A093F4005EF7B0 /* Media.xcassets */; };
 		56FD15C91998FFE100D51FB8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FD15C81998FFE100D51FB8 /* QuartzCore.framework */; };
 		56FD15CB1998FFE100D51FB8 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FD15CA1998FFE100D51FB8 /* OpenGLES.framework */; };
@@ -243,6 +244,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		562B40D219A8DD28003FE1A5 /* TestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestScene.h; sourceTree = "<group>"; };
+		562B40D319A8DD28003FE1A5 /* TestScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestScene.m; sourceTree = "<group>"; };
 		56E0625A19A093F4005EF7B0 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = Resources/Media.xcassets; sourceTree = "<group>"; };
 		56FD15C51998FFE100D51FB8 /* TileTumbler-v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TileTumbler-v2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FD15C81998FFE100D51FB8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1528,6 +1531,8 @@
 				56FD184F1998FFE500D51FB8 /* IntroScene.m */,
 				56FD188D199ACDF400D51FB8 /* ModeScene.h */,
 				56FD188E199ACDF400D51FB8 /* ModeScene.m */,
+				562B40D219A8DD28003FE1A5 /* TestScene.h */,
+				562B40D319A8DD28003FE1A5 /* TestScene.m */,
 			);
 			name = Scenes;
 			path = Classes/Scenes;
@@ -1815,6 +1820,7 @@
 				56FD169E1998FFE200D51FB8 /* CCParticleExamples.m in Sources */,
 				56FD169B1998FFE200D51FB8 /* CCParticleBatchNode.m in Sources */,
 				56FD178F1998FFE400D51FB8 /* IOSVersion.m in Sources */,
+				562B40D419A8DD28003FE1A5 /* TestScene.m in Sources */,
 				56FD16E31998FFE300D51FB8 /* CCTextureCache.m in Sources */,
 				56FD17121998FFE300D51FB8 /* CCDirectorMac.m in Sources */,
 				56FD16231998FFE200D51FB8 /* CCEffectBrightness.m in Sources */,
