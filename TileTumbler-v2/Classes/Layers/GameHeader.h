@@ -2,7 +2,7 @@
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 
-#define UI_FONT @"CaviarDreams.ttf"
+#define UI_FONT @"Caviar Dreams"
 #define UI_FONT_SIZE 18
 
 /**

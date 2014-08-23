@@ -7,7 +7,7 @@
 
 #import "TBoard.h"
 
-#define UI_FONT @"CaviarDreams.ttf"
+#define UI_FONT @"Caviar Dreams"
 
 #define TILE_SPAWN 2
 
