@@ -252,7 +252,7 @@
  *
  *  @param fontFile Font file path.
  */
-+(void) registerCustomTTF:(NSString*)fontFile;
++(NSString*) registerCustomTTF:(NSString*)fontFile;
 
 
 @end

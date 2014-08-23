@@ -6,7 +6,7 @@
 +(NSAttributedString*) uiString:(NSString*)string withSize:(int)size {
   
   /* If we haven't loaded this custom font yet */
-  if (![UIFont fontWithName:@"CaviarDreams.ttf" size:12]) {
+  if (![UIFont fontWithName:@"Caviar Dreams" size:12]) {
     
     // Make CCLabelTTF class do the work for us!
     [CCLabelTTF labelWithString:@"" fontName:@"CaviarDreams.ttf" fontSize:12];
@@ -20,7 +20,7 @@
   
   /* Font attribute */
   [attributedString addAttribute:NSFontAttributeName
-                           value:[UIFont fontWithName:@"CaviarDreams" size:[Utility scaledFont:size]]
+                           value:[UIFont fontWithName:@"Caviar Dreams" size:[Utility scaledFont:size]]
                            range:NSMakeRange(0, string.length)];
   
   return attributedString;
