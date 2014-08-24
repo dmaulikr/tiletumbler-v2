@@ -10,7 +10,7 @@
 {
   
 #ifdef ANDROID
-  [UIScreen mainScreen].currentMode = [UIScreenMode emulatedMode:UIScreenIPhone3GEmulationMode];
+  [UIScreen mainScreen].currentMode = [UIScreenMode emulatedMode:UIScreenBestEmulationMode];
 #endif
   
   /* Assign defaults if not exist */
