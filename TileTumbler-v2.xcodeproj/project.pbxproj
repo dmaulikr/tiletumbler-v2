@@ -22,10 +22,6 @@
 		56FD15DB1998FFE100D51FB8 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FD15DA1998FFE100D51FB8 /* GLKit.framework */; };
 		56FD15E11998FFE100D51FB8 /* libObjectiveChipmunk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56FD15DE1998FFE100D51FB8 /* libObjectiveChipmunk.a */; };
 		56FD15E51998FFE100D51FB8 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD15E41998FFE100D51FB8 /* Default.png */; };
-		56FD15E71998FFE100D51FB8 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD15E61998FFE100D51FB8 /* Default@2x.png */; };
-		56FD15E91998FFE100D51FB8 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56FD15E81998FFE100D51FB8 /* Default-568h@2x.png */; };
-		56FD16091998FFE100D51FB8 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 56FD16081998FFE100D51FB8 /* iTunesArtwork */; };
-		56FD160B1998FFE200D51FB8 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 56FD160A1998FFE200D51FB8 /* iTunesArtwork@2x */; };
 		56FD161F1998FFE200D51FB8 /* CCEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD161E1998FFE200D51FB8 /* CCEffect.m */; };
 		56FD16211998FFE200D51FB8 /* CCEffectRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD16201998FFE200D51FB8 /* CCEffectRenderer.m */; };
 		56FD16231998FFE200D51FB8 /* CCEffectBrightness.m in Sources */ = {isa = PBXBuildFile; fileRef = 56FD16221998FFE200D51FB8 /* CCEffectBrightness.m */; };
@@ -243,11 +239,7 @@
 		56FD15DA1998FFE100D51FB8 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		56FD15DE1998FFE100D51FB8 /* libObjectiveChipmunk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libObjectiveChipmunk.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		56FD15E41998FFE100D51FB8 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = "Resources/Splash Images/Default.png"; sourceTree = "<group>"; };
-		56FD15E61998FFE100D51FB8 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Splash Images/Default@2x.png"; sourceTree = "<group>"; };
-		56FD15E81998FFE100D51FB8 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Splash Images/Default-568h@2x.png"; sourceTree = "<group>"; };
 		56FD16071998FFE100D51FB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
-		56FD16081998FFE100D51FB8 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = ../iTunesArtwork; sourceTree = "<group>"; };
-		56FD160A1998FFE200D51FB8 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; name = "iTunesArtwork@2x"; path = "../iTunesArtwork@2x"; sourceTree = "<group>"; };
 		56FD160F1998FFE200D51FB8 /* CCEffect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCEffect.h; path = Libraries/cocos2d/CCEffect.h; sourceTree = "<group>"; };
 		56FD16101998FFE200D51FB8 /* CCEffectRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCEffectRenderer.h; path = Libraries/cocos2d/CCEffectRenderer.h; sourceTree = "<group>"; };
 		56FD16111998FFE200D51FB8 /* CCEffectBrightness.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCEffectBrightness.h; path = Libraries/cocos2d/CCEffectBrightness.h; sourceTree = "<group>"; };
@@ -676,8 +668,6 @@
 			isa = PBXGroup;
 			children = (
 				56FD15E41998FFE100D51FB8 /* Default.png */,
-				56FD15E61998FFE100D51FB8 /* Default@2x.png */,
-				56FD15E81998FFE100D51FB8 /* Default-568h@2x.png */,
 			);
 			name = "Splash Images";
 			sourceTree = "<group>";
@@ -740,8 +730,6 @@
 				56E0625A19A093F4005EF7B0 /* Media.xcassets */,
 				56FD1878199A4FF000D51FB8 /* UI */,
 				56FD16071998FFE100D51FB8 /* Info.plist */,
-				56FD16081998FFE100D51FB8 /* iTunesArtwork */,
-				56FD160A1998FFE200D51FB8 /* iTunesArtwork@2x */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1661,7 +1649,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56FD15E71998FFE100D51FB8 /* Default@2x.png in Resources */,
 				56FD186619990A1900D51FB8 /* TTile.png in Resources */,
 				56FD189C199B71A000D51FB8 /* tile-hit.mp3 in Resources */,
 				56FD189B199B71A000D51FB8 /* bg.mp3 in Resources */,
@@ -1681,9 +1668,6 @@
 				56FD1880199A524000D51FB8 /* VolMin.png in Resources */,
 				56FD17D41998FFE400D51FB8 /* LICENSE_CCBReader.txt in Resources */,
 				56FD17441998FFE300D51FB8 /* LICENSE_cocos2d.txt in Resources */,
-				56FD15E91998FFE100D51FB8 /* Default-568h@2x.png in Resources */,
-				56FD16091998FFE100D51FB8 /* iTunesArtwork in Resources */,
-				56FD160B1998FFE200D51FB8 /* iTunesArtwork@2x in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

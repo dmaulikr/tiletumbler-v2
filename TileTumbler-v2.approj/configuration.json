@@ -296,7 +296,10 @@
     // or a dictionary like above, but instead specifying the full target file name
     // for the asset, e.g.,
     // {"asset": "./Resources/cube_texture.pvr.ccz", "target_file": "Bundled Resources/cube_texture.pvr.gz", "env": {"TARGET_TEXTURE_FMT": "pvr"}}
-    "assets": [],
+    "assets": [{"asset": "TileTumbler-v2/Resources/Splash Images/Default@2x.png", "target": "Default@2x.png"},
+    		   {"asset": "TileTumbler-v2/Resources/Splash Images/Default-568h@2x.png", "target": "Default-568h@2x.png"},
+    		   {"asset": "iTunesArtwork", "target": "iTunesArtwork"},
+    		   {"asset": "iTunesArtwork@2x", "target": "iTunesArtwork@2x"}],
 
     // A list of Info.plist files.  The first one in the list will be the one we consider the main Info.plist.
     "infoplists": [],

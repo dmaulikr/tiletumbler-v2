@@ -1,10 +1,6 @@
 {
     "assets": [
         {
-            "asset": "TileTumbler-v2/Resources/Splash Images/Default@2x.png", 
-            "target": "Default@2x.png"
-        }, 
-        {
             "asset": "TileTumbler-v2/Resources/Nodes/TTile.png", 
             "target": "TTile.png"
         }, 
@@ -75,18 +71,6 @@
         {
             "asset": "TileTumbler-v2/Libraries/LICENSE_cocos2d.txt", 
             "target": "LICENSE_cocos2d.txt"
-        }, 
-        {
-            "asset": "TileTumbler-v2/Resources/Splash Images/Default-568h@2x.png", 
-            "target": "Default-568h@2x.png"
-        }, 
-        {
-            "asset": "iTunesArtwork", 
-            "target": "iTunesArtwork"
-        }, 
-        {
-            "asset": "iTunesArtwork@2x", 
-            "target": "iTunesArtwork@2x"
         }, 
         {
             "asset": "TileTumbler-v2/Resources/Media.xcassets", 
@@ -1228,7 +1212,7 @@
             "type": "iquote"
         }, 
         {
-            "header_path": "/var/folders/fd/8_vgkxy90_591yj6711l_8480000gn/T/tmp8Ej4rb/BUILT_PRODUCTS_DIR/include", 
+            "header_path": "/var/folders/fd/8_vgkxy90_591yj6711l_8480000gn/T/tmpQcrtb7/BUILT_PRODUCTS_DIR/include", 
             "type": "I"
         }, 
         {
@@ -1240,11 +1224,11 @@
             "type": "I"
         }, 
         {
-            "header_path": "/var/folders/fd/8_vgkxy90_591yj6711l_8480000gn/T/tmp8Ej4rb/DERIVED_FILE_DIR/armv7", 
+            "header_path": "/var/folders/fd/8_vgkxy90_591yj6711l_8480000gn/T/tmpQcrtb7/DERIVED_FILE_DIR/armv7", 
             "type": "I"
         }, 
         {
-            "header_path": "/var/folders/fd/8_vgkxy90_591yj6711l_8480000gn/T/tmp8Ej4rb/DERIVED_FILE_DIR", 
+            "header_path": "/var/folders/fd/8_vgkxy90_591yj6711l_8480000gn/T/tmpQcrtb7/DERIVED_FILE_DIR", 
             "type": "I"
         }
     ], 
