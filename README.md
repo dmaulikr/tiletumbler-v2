@@ -2,7 +2,7 @@ Tile Tumbler v2
 ===============
 
 ![alt tag](http://ronanturner.net/statuses/works-yes.png)
-![alt tag](http://ronanturner.net/statuses/status-active.png)
+![alt tag](http://ronanturner.net/statuses/status-inactive.png)
 
 1. Intro
 --------
@@ -11,7 +11,12 @@ A rework of Tile Tumbler, with porting over to Cocos2d v3 and it's relevant impr
 
 --------
 
-Can be downloaded for free in the iOS App-Store: https://itunes.apple.com/gb/app/id849718318?mt=8
+Note: This project is now complete. Android portability was implemented using Apportable and you'll find these resources in the .appproj directory. Apportable is available over [here](https://www.apportable.com). This version will soon reflect the available version in the Google Play store and the App Store.
+
+--------
+
+[iOS App-Store](https://itunes.apple.com/gb/app/id849718318?mt=8)
+[Google Play Store](https://play.google.com/store/apps/details?id=turner.ronan.TileTumbler)
 
 --------
 
